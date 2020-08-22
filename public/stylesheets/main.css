@@ -1,0 +1,153 @@
+hr.abrupt {
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}
+hr.smooth {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+body {
+	background: rgba(132,217,255,0.1);
+	/* background: -moz-linear-gradient(0deg, rgba(255,190,251,0.1516981792717087) 0%, rgba(132,217,255,0.15) 50%, rgba(255,190,251,0.15) 100%);
+	background: -webkit-linear-gradient(0deg, rgba(255,190,251,0.1516981792717087) 0%, rgba(132,217,255,0.15) 50%, rgba(255,190,251,0.15) 100%);
+	background: linear-gradient(0deg, rgba(255,190,251,0.1516981792717087) 0%, rgba(132,217,255,0.15) 50%, rgba(255,190,251,0.15) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffbefb",endColorstr="#ffbefb",GradientType=1); */
+}
+.ui.celled.grid {
+	background: white;
+}
+
+i.icon {
+	text-shadow: 2px 2px rgba(0,0,0,0.3);
+}
+
+.ui.menu .item {
+	padding-top: 0;
+	padding-bottom: 0;
+	font-size: 20px;
+}
+
+.ui.segment {
+	height: 80%;
+}
+
+.ui.cards img {
+	max-height: 200px;
+}
+
+.title{
+	/*padding-top: min(15%, 5.5em);*/
+	padding-top: 5.5em;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.1);
+	padding-bottom: 1.5em;
+	margin-bottom: 5em;
+}
+
+.title h1 {
+	font-size: 3em;
+	text-shadow: 3px 2px rgba(0,0,0,0.4);
+	margin: 0;
+}
+
+.title .icon{
+	font-size: 1em;
+	color: #216ccf;
+}
+
+.title .icon.crosshairs {
+	color: red;
+	text-shadow: none;
+}
+
+.title h2{
+	margin-top: 7px;
+	font-size: 1.5em;
+
+}
+
+.main {
+	text-align:left;
+	margin-bottom: 10em;
+}
+
+.main h2  {
+	font-size: 2.5em;
+	margin-bottom: 3px;
+}
+
+.main h3 {
+	margin-top: 4px;
+	text-align: center;
+	font-size: 1.8em;
+}
+.main h4 {
+	text-align: center;
+	font-size: 1.3em;
+}
+
+.main p {
+	font-size: 1.4em;
+	padding-left: 1em;
+}
+
+.main p::first-letter{
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.main ul{
+	line-height: 2em;
+}
+
+.main li {
+	font-size: 1.4em;
+}
+
+/* .tab{
+	padding: 0 1em;
+}
+ */
+
+ul.thumbnails {
+	padding: 0;
+	/* margin-block-end: 0; */
+}
+
+.thumbnails li{
+	list-style: none;
+	display: inline;
+	padding-right: 10px;
+}
+
+.thumbnails img{
+	width: 120px;
+	height: 80px;
+	border-radius: 5px
+}
+
+.active img {
+	border: solid #2c7bff 5px;
+}
+
+#tradmark {
+	font-size: 1.3em;
+	font-weight: bold;
+	margin-top: 10px;
+	text-align: center;
+	padding-bottom: 5em;
+}
+
+@media(max-width: 768px) {
+	.title{
+		padding-top: 7em;
+		text-align: center;
+		background-color: rgba(0, 0, 0, 0.1);
+		padding-bottom: 1.5em;
+		margin-bottom: 5em;
+	}
+}
