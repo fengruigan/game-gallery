@@ -18,7 +18,24 @@
     </h2>
     <hr class="abrupt">
     <div class="ui raised link cards two column">
-        <div class="ui card">
+        <% works.forEach( (work)=> { %>
+            <div class="ui card">
+                <div class="ui placeholder">
+                    <div class="image"></div>
+                    <!-- <img src="#" class="thumbnail"> -->
+                    <!-- <img src="images/marine_vs_zergling_thumbnail.png"> -->
+                </div>
+                <div class="content">
+                    <div class="header">
+                        <%= work.title %>
+                    </div>
+                    <div class="description">
+                        <%= work.description %>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+        <!-- <div class="ui card">
             <div class="image">
                 <img src="images/marine_vs_zergling_thumbnail.png">
             </div>
@@ -30,7 +47,7 @@
                     Description
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
 
@@ -70,6 +87,7 @@
         <div class="ui card">
             <div class="ui placeholder">
                 <div class="image" style="height:200px;"></div>
+                <!-- <img class="thumbnail" style="width: 100%"> -->
             </div>
             <div class="content">
                 <div class="header">

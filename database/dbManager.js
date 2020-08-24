@@ -8,10 +8,22 @@ class dbManager{
         // creates a new uuid'ed in the database 
         let id = uuid();
         db[id] = work;
+        db.works.push(id);
         fs.writeFile("./database/workDB.json", JSON.stringify(db, null, '\t'), 'utf8', () => {
             console.log(id + " created");
         });
     };
+    static readAll = function(identifier="none") {
+        switch(identifier) {
+            case "none": // return an array objects corresponding to the ids in works
+                let arr = [];
+                db.works.forEach(id => {
+                    arr.push(dbManager.read(id));
+                });
+                return arr;
+                break;
+        }
+    }
     static read = function(id) {
         // returns the work object
         if (db[id]){
@@ -42,7 +54,5 @@ class dbManager{
     };
 }
 
-// dbManager.create(new work());
-var r = dbManager.read("f0c0de2c-59c7-453a-bab8-6ee214b51710");
 
 module.exports = dbManager;
