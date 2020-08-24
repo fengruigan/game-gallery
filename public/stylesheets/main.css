@@ -10,16 +10,6 @@ hr.smooth {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-body {
-	background: rgba(132,217,255,0.1);
-	/* background: -moz-linear-gradient(0deg, rgba(255,190,251,0.1516981792717087) 0%, rgba(132,217,255,0.15) 50%, rgba(255,190,251,0.15) 100%);
-	background: -webkit-linear-gradient(0deg, rgba(255,190,251,0.1516981792717087) 0%, rgba(132,217,255,0.15) 50%, rgba(255,190,251,0.15) 100%);
-	background: linear-gradient(0deg, rgba(255,190,251,0.1516981792717087) 0%, rgba(132,217,255,0.15) 50%, rgba(255,190,251,0.15) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffbefb",endColorstr="#ffbefb",GradientType=1); */
-}
-.ui.celled.grid {
-	background: white;
-}
 
 i.icon {
 	text-shadow: 2px 2px rgba(0,0,0,0.3);
@@ -33,10 +23,6 @@ i.icon {
 
 .ui.segment {
 	height: 80%;
-}
-
-.ui.cards img {
-	max-height: 200px;
 }
 
 .title{
@@ -113,18 +99,19 @@ i.icon {
 }
  */
 
-ul.thumbnails {
+ul.list {
 	padding: 0;
+	list-style: none;
 	/* margin-block-end: 0; */
 }
 
-.thumbnails li{
-	list-style: none;
+.list li{
+	/* list-style: none; */
 	display: inline;
 	padding-right: 10px;
 }
 
-.thumbnails img{
+.list img{
 	width: 120px;
 	height: 80px;
 	border-radius: 5px
