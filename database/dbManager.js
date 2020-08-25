@@ -2,6 +2,7 @@ var db = require('./workDB.json'),
     fs = require('fs'),
     uuid = require('uuid').v4,
     path = require('path'),
+    rimraf = require('rimraf'),
     work = require('./workSchema');
 
 class dbManager{
@@ -35,26 +36,27 @@ class dbManager{
             console.log(id + " created");
         });
         // ================ create work folder in public ================
-        fs.mkdir(path.join("./public/", id), (err) => {
+        fs.mkdirSync(path.join("./public/", id), (err) => {
             if (err) {
                 console.log(err);
             }
         });
-        // fs.mkdir(path.join("./public", id, "images"), (err) => {
-        //     if (err) {
-        //         console.log(err);
-        //     }
-        // });
-        // fs.mkdir(path.join("./public", id, "stylesheets"), (err) => {
-        //     if (err) {
-        //         console.log(err);
-        //     }
-        // });
-        // fs.mkdir(path.join("./public", id, "scripts"), (err) => {
-        //     if (err) {
-        //         console.log(err);
-        //     }
-        // });
+        fs.mkdirSync(path.join("./public", id, "images"), (err) => {
+            if (err) {
+                console.log(err);
+            }
+        });
+        fs.mkdirSync(path.join("./public", id, "stylesheets"), (err) => {
+            if (err) {
+                console.log(err);
+            }
+        });
+        fs.mkdirSync(path.join("./public", id, "scripts"), (err) => {
+            if (err) {
+                console.log(err);
+            }
+        });
+        console.log("Directory created")
     }
 
     static readAll = function(criteria="none") {
@@ -194,6 +196,14 @@ class dbManager{
             fs.writeFile("./database/workDB.json", JSON.stringify(db, null, '\t'), 'utf8', () => {
                 console.log(id + " deleted");
             });
+            // ================ delete directory ================
+            if (id !== ""){
+                rimraf(path.join("./public", id), () => {
+                    console.log("Directory removed");
+                })
+            } else {
+                console.log("ID is empty! CAREFUL!")
+            }
         } else {
             console.log("ID does not exist");
         }
