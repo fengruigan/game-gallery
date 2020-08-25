@@ -23,18 +23,25 @@ var express = require('express'),
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public", {dotfiles: 'allow'}));
 
-// app.get('/', (req,res) => {
-//     let works = dbManager.readAll();
-//     res.render('home', {works: works});
-// });
-
 app.get('/', (req,res) => {
-    res.sendFile(__dirname + "/views/games/CGJ.html");
+    let works = dbManager.readAll();
+    res.render('home', {works: works});
+});
+
+// app.get('/', (req,res) => {
+//     // res.sendFile(__dirname + "/views/games/CGJ.html");
+//     res.render("games/CGJ");
+// })
+
+app.get('/works/:id', (req,res) => {
+    
 })
 
-app.get('/games', (req,res) => {
-    res.sendFile(__dirname + "/views/games/CGJ.html");
-})
+
+// app.get('/games', (req,res) => {
+//     // res.sendFile(__dirname + "/views/games/CGJ.html");
+//     res.render("games/CGJ")
+// })
 
 app.listen(process.env.PORT || 8000, () => {
     console.log('Server running');
