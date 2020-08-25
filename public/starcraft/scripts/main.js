@@ -143,7 +143,7 @@ window.boot = function () {
     var bundledScript = settings.debug ? '/starcraft/src/project.dev.js' : '/starcraft/src/project.js';
     if (jsList) {
         jsList = jsList.map(function (x) {
-            return '/starcraft/src/' + x;
+            return '/src/' + x;
         });
         jsList.push(bundledScript);
     }

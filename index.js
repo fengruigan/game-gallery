@@ -21,15 +21,19 @@ var express = require('express'),
 
 
 app.set("view engine", "ejs");
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public", {dotfiles: 'allow'}));
+
+// app.get('/', (req,res) => {
+//     let works = dbManager.readAll();
+//     res.render('home', {works: works});
+// });
 
 app.get('/', (req,res) => {
-    let works = dbManager.readAll();
-    res.render('home', {works: works});
-});
+    res.sendFile(__dirname + "/views/games/CGJ.html");
+})
 
 app.get('/games', (req,res) => {
-    res.sendFile(__dirname + "/views/games/demo.html");
+    res.sendFile(__dirname + "/views/games/CGJ.html");
 })
 
 app.listen(process.env.PORT || 8000, () => {

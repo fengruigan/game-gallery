@@ -81,10 +81,10 @@ i.icon {
 	padding-left: 1em;
 }
 
-.main p::first-letter{
+/* .main p::first-letter{
 	font-size: 1.2em;
 	font-weight: bold;
-}
+} */
 
 .main ul{
 	line-height: 2em;
