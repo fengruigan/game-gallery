@@ -1,4 +1,5 @@
 class work {
+    id;
     title = '';
     authors = '';
     description = '';

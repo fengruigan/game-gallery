@@ -11,5 +11,5 @@ var newWork = new work(
     event="2020-CiGA"
 )
 
-// dbManager.create(newWork);
+dbManager.create(new work());
 // dbManager.destory("ebcaf39f-ffa2-45b1-b28f-b67729228323");

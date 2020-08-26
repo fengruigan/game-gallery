@@ -10,6 +10,7 @@ class dbManager{
     static create = function(work) {
         // creates a new uuid'ed in the database 
         let id = uuid();
+        work.id = id;
         db[id] = work;
         // ================ push allWorks array ================
         db.works.push(id);

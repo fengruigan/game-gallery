@@ -19,7 +19,6 @@ var express = require('express'),
 
 
 
-
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public", {dotfiles: 'allow'}));
 
@@ -34,13 +33,17 @@ app.get('/', (req,res) => {
 // })
 
 app.get('/works/:id', (req,res) => {
-    
+    let work = dbManager.read(req.params.id);
+    if (work) {
+        // res.render("works/" + req.params.id, {work: work});
+        res.send("Going to render ID " + req.params.id);
+    }
 })
 
 
 // app.get('/games', (req,res) => {
 //     // res.sendFile(__dirname + "/views/games/CGJ.html");
-//     res.render("games/CGJ")
+//     res.render("works/e7f86cf1-e768-4659-be49-57711fa559a4")
 // })
 
 app.listen(process.env.PORT || 8000, () => {

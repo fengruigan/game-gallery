@@ -19,7 +19,7 @@
     <hr class="abrupt">
     <div class="ui raised link cards two column">
         <% works.forEach( (work)=> { %>
-            <div class="ui card">
+            <div class="ui card" id=<%= work.id %>>
                 <div class="ui placeholder">
                     <div class="image"></div>
                     <!-- <img src="#" class="thumbnail"> -->
@@ -192,22 +192,22 @@
         </div>
     </div>
 
-    <div class="ui celled grid" id="detail">
+    <div class="ui celled grid" id="detail" style="display:none">
             <div class="row">
                 <!-- <div class="ui celled grid"> -->
                     <div class="six wide column">
                         <div class="ui raised segment">
-                            <h3>
+                            <h3 id="title">
                                 Game Title
                             </h3>
-                            <h4>
+                            <h4 id="author">
                                 Author
                             </h4>
-                            <p>
+                            <p id="description">
                                 Description
                             </p>
                         </div>
-                        <a href='/games' class="ui green fluid huge button">Go Take A Look!</a>
+                        <a id="link" href='/games' class="ui green fluid huge button">Go Take A Look!</a>
                     </div>
                     <div class='ten wide column'>
                         <!-- <div class="row">
@@ -236,51 +236,6 @@
                 <!-- </div> -->
             </div>
     </div>
-
-    <!-- </div> -->
-
-    <div class="ui celled grid">
-        <div class="row">
-            <!-- <div class="ui celled grid"> -->
-                <div class="six wide column">
-                    <h3>
-                        Game Title
-                    </h3>
-                    <h4>
-                        Author
-                    </h4>
-                    <p>
-                        Description
-                    </p>
-                </div>
-                <div class='ten wide column'>
-                    <!-- <div class="row">
-                        <h3>
-                            Game Title Here
-                        </h3>
-                    </div> -->
-                    <div class="row">
-                        <div class="ui image showcase">
-                            <img src="images/marine_vs_zergling_thumbnail.png">
-                        </div>
-                    </div>
-                    <ul class="list">
-                        <li class="active">
-                            <img src="images/CGJ_theme.png">
-                        </li>
-                        <li>
-                            <img src="images/CGJ_game_thumbnail.png">
-                        </li>
-                        <li>
-                            <img src="images/marine_vs_zergling_thumbnail.png">
-                        </li>
-
-                    </ul>
-                </div>
-            <!-- </div> -->
-        </div>
-    </div>
-    
 
 </div>
 
