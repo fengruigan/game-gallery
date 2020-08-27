@@ -22,16 +22,16 @@ var express = require('express'),
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public", {dotfiles: 'allow'}));
 
-// app.get('/', (req,res) => {
-//     let works = dbManager.readAll();
-//     res.render('home', {works: works});
-// });
-
 app.get('/', (req,res) => {
-    // res.sendFile(__dirname + "/views/games/CGJ.html");
-    let work = dbManager.read("e7f86cf1-e768-4659-be49-57711fa559a4");
-    res.render("works/e7f86cf1-e768-4659-be49-57711fa559a4", {work: work});
-})
+    let works = dbManager.readAll();
+    res.render('home', {works: works});
+});
+
+// app.get('/', (req,res) => {
+//     // res.sendFile(__dirname + "/views/games/CGJ.html");
+//     let work = dbManager.read("e7f86cf1-e768-4659-be49-57711fa559a4");
+//     res.render("works/e7f86cf1-e768-4659-be49-57711fa559a4", {work: work});
+// })
 
 
 app.get('/works/:id', (req,res) => {
