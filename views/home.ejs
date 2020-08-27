@@ -41,6 +41,9 @@
             <% } %>
             <% left = !left %>
         <% }) %>
+        <% if(!left) { %>
+            </div>
+        <% } %>
         <!-- <div class="ui card">
             <div class="image">
                 <img src="images/marine_vs_zergling_thumbnail.png">
@@ -100,6 +103,9 @@
             <% left = !left %>
         <% } %>
     <% }) %>
+    <% if(!left) { %>
+        </div>
+    <% } %>
 
     <!-- <div class="ui raised link cards two column">
             <div class="ui card">
