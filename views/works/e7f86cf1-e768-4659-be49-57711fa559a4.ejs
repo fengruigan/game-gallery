@@ -13,7 +13,7 @@
 	<meta name="force-rendering" content="webkit"/>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 	<link rel="stylesheet" type="text/css" href= "/<%= work.id %>/stylesheets/style-desktop.css"/>
-	<link rel="icon" href="favicon.ico"/>
+	<!-- <link rel="icon" href="favicon.ico"/> -->
 	<title><%= work.title %>|独立游戏展</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
 	<link rel="stylesheet" href="/stylesheets/main.css">
@@ -53,48 +53,34 @@
 
 	<div class="main ui container">
 		<h2>
-			<i class="gamepad green icon"></i> 游戏试玩
+			<i class="info blue icon"></i> 游戏简介
 		</h2>
 		<hr class="smooth">
-	<!-- </div> -->
-	<h3 style="text-align: left">
-		简介：
-	</h3>
-	<p>
-		这是一场天灾，还是人为，莉莉丝不清楚，她只知道她家的房子正在被巨型蚂蚁撕开口子，源源不断的蚂蚁从裂缝中涌入。玩家需要利用空投的物资，保护莉莉丝，just do it！
-	</p>
-	<p>
-		保护莉莉丝到空投防护服并逃出去，或者利用箱子填满20条裂缝。箱子可以阻挡蚂蚁。
-	</p>
-	<h3 style="text-align: left">
-		操作（电脑）：
-	</h3>
-	<ul>
-		<li>使用方向键移动</li>
-		<li>使用“Z”键拾取和放置物品</li>
-	</ul>
-	
-	<h2>
-		<i class="thumbtack violet icon"></i> 游戏画面
-	</h2>
-	<hr class="smooth">
-	<div class="ui placeholder">
-		<div class="image"></div>
-	</div>
-	
-	<!-- <div id="GameDiv" style="width:1280px; height: 720px;"> -->
-	<div id="GameDiv" style="margin-top: 5em; margin-bottom: 10em">
-	  <canvas id="GameCanvas" width="1280" height="720"></canvas>
-	  <div id="splash">
-		<div class="progress-bar stripes">
-		  <span style="width: 0%"></span>
+		<p>
+			这是一场天灾，还是人为，莉莉丝不清楚，她只知道她家的房子正在被巨型蚂蚁撕开口子，源源不断的蚂蚁从裂缝中涌入。玩家需要利用空投的物资，保护莉莉丝，just do it！
+		</p>
+		<h2>
+			<i class="thumbtack violet icon"></i> 游戏画面
+		</h2>
+		<hr class="smooth">
+		<div class="ui placeholder">
+			<div class="image"></div>
 		</div>
-	  </div>
-	</div>
+		
 	
 
 
 <!-- <div class="main ui container"> -->
+	<h2>
+		<i class="user circle icon"></i> 开发团队
+	</h2>
+	<hr class="smooth">
+	<div style="display:flex;justify-content: center;">
+		<img src="/<%= work.id %>/images/2.png">
+	</div>
+
+
+
 	<h2>
 		<i class="beer orange icon"></i> 开发历程
 	</h2>
@@ -121,6 +107,43 @@
 	<p>
 		其实这次比赛真的给我带来了不一样的体会：游戏制作的流程，团队的沟通的重要性，以及最重要的相互理解与合作。两位程序大佬油油和影子轮流肝程序，美术大佬罗德爆肝所有绘制需求，音乐大佬健康独自一人撑起音效的天，策划大佬三思带着弟中弟（我）写各种策划所需。这些东西到今天都很难相信是48h之内完成的，并且难以置信的做出了包括微信小游戏在内的8个迭代版本。真的非常感谢各位大佬可以包容弟中弟各种奇葩时刻（擦脸.gif）
 	</p>
+
+
+	<h2>
+		<i class="gamepad green icon"></i> 游戏试玩
+	</h2>
+	<hr class="smooth">
+	<p>
+		微信可以扫小程序码直接游玩
+	</p>
+	<!-- <div class="ui small image"> -->
+	<div style="display:flex;justify-content:center;">
+		<img src="/<%= work.id %>/images/qrcode.jpg">
+	</div>
+	<div class="ui divider hidden"></div>
+	<p>
+		保护莉莉丝到空投防护服并逃出去，或者利用箱子填满20条裂缝。箱子可以阻挡蚂蚁。
+	</p>
+	<h3 style="text-align: left">
+		操作（电脑）：
+	</h3>
+	<ul>
+		<li>使用方向键移动</li>
+		<li>使用“Z”键拾取和放置物品</li>
+	</ul>
+	
+	
+	
+	<!-- <div id="GameDiv" style="width:1280px; height: 720px;"> -->
+	<div id="GameDiv" style="margin-top: 5em; margin-bottom: 10em">
+	<canvas id="GameCanvas" width="1280" height="720"></canvas>
+	<div id="splash">
+		<div class="progress-bar stripes">
+		<span style="width: 0%"></span>
+		</div>
+	</div>
+	</div>
+
 
 	<a href="/" class="ui blue button">返回</a>
 </div>

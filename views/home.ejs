@@ -77,26 +77,28 @@
 
     <% left = true %>
     <% works.forEach( (work)=> { %>
-        <% if (left) { %>
-            <div class="ui raised link cards two column">
-        <% } %>
-                <div class="ui card" id=<%= work.id %>>
-                    <div class="image">
-                        <img src="/<%= work.id %>/images/1.png">
-                    </div>
-                    <div class="content">
-                        <div class="header">
-                            <%= work.title %>
+        <% if (work.event === "2020-CiGA") { %>
+            <% if (left) { %>
+                <div class="ui raised link cards two column">
+            <% } %>
+                    <div class="ui card" id=<%= work.id %>>
+                        <div class="image">
+                            <img src="/<%= work.id %>/images/1.png">
                         </div>
-                        <div class="description">
-                            <%= work.description %>
+                        <div class="content">
+                            <div class="header">
+                                <%= work.title %>
+                            </div>
+                            <div class="description">
+                                <%= work.description %>
+                            </div>
                         </div>
                     </div>
+            <% if(!left) { %> 
                 </div>
-        <% if(!left) { %> 
-            </div>
+            <% } %>
+            <% left = !left %>
         <% } %>
-        <% left = !left %>
     <% }) %>
 
     <!-- <div class="ui raised link cards two column">

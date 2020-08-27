@@ -2511,7 +2511,7 @@ module.exports={
 			"健康大王"
 		],
 		"description": "这是一场天灾，还是人为，莉莉丝不清楚，她只知道她家的房子正在被巨型蚂蚁撕开口子，源源不断的蚂蚁从裂缝中涌入。玩家需要利用空投的物资，保护莉莉丝，just do it！",
-		"imgCount": 3,
+		"imgCount": 4,
 		"category": [
 			"塔防"
 		],
@@ -2521,8 +2521,8 @@ module.exports={
 		"id": "134a6835-2642-412f-a1d1-22f59b31dbd0",
 		"title": "无标题",
 		"authors": [],
-        "description": "作者很懒，没有写简介",
-        "imgCount": 1,
+		"description": "作者很懒，没有写简介",
+		"imgCount": 1,
 		"category": [
 			"无分类"
 		],
@@ -7059,7 +7059,6 @@ function populateDetail(id) {
     }
     $('#description').text(work.description);
     $('#link').attr("href", "/works/" + id);
-    // $('.showcase img').attr("src", "/" + id + "/images/1.png");
 
     $('.list').empty();
     for (let i = 1; i <= Math.min(work.imgCount, 4); i++) {
@@ -7073,9 +7072,7 @@ function populateDetail(id) {
         let li = "<li " + cls + "><img src='"+imgUrl+"'></li>";
         $(".list").append(li);
     }
-
     changeShowcase();
-
     $('li').click( (param) => {
         $('li').removeClass("active");
         param.currentTarget.classList.add("active");
