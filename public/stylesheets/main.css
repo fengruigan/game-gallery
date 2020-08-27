@@ -99,19 +99,19 @@ i.icon {
 }
  */
 
-ul.list {
+#list {
 	padding: 0;
 	list-style: none;
 	/* margin-block-end: 0; */
 }
 
-.list li{
+#list li{
 	/* list-style: none; */
 	display: inline;
 	padding-right: 10px;
 }
 
-.list img{
+#list img{
 	width: 120px;
 	height: 80px;
 	border-radius: 5px

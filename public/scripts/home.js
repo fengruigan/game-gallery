@@ -7020,25 +7020,23 @@ function wrappy (fn, cb) {
 }
 
 },{}],46:[function(require,module,exports){
-// var imageManager = require('../../manager/imageManager.json')
-// var db = require('../../database/workDB.json')
 var dbManager = require('../database/dbManager'),
     fs = require('fs');
 
 // ========================= BELOW ARE WORKING SCRIPTS
 
-$(document).ready( () => {
+onLoad()
 
+function onLoad() {
     resizeImg();
     let cards = document.querySelectorAll('.ui.card');
     cards.forEach( (card) => {
         card.addEventListener('click', (param) => {
             let detail = document.querySelector('#detail');
             detail.style.display = "none";
-            let pathLen = param.path.length;
-            let target = param.path[pathLen - 7];
-            let parent = param.path[pathLen - 6];
-            // populateDetail(target.id);
+            let target = param.currentTarget;
+            let parent = target.parentElement;
+            populateDetail(target.id);
             parent.after(detail);
             detail.style.display = "block";
         })
@@ -7058,11 +7056,11 @@ $(document).ready( () => {
     //     $("#detail").fadeIn(400);
     //     populateDetail(target.id);
     // })
-})
 
-$(window).resize( () => {
-    resizeImg();
-})
+    window.addEventListener('resize', () => {
+        resizeImg();
+    })
+}
 
 function resizeImg() {
 
@@ -7077,45 +7075,57 @@ function resizeImg() {
 
 function populateDetail(id) {
     let work = dbManager.read(id);
-    $('#title').text(work.title);
+    // $('#title').text(work.title);
+    document.querySelector('#title').textContent = work.title
     let authors = work.authors.join();
+    let author_field = document.querySelector('#author')
     if (authors !== ""){
-        $('#author').text(authors);
+        author_field.textContent = authors;
     } else {
-        $('#author').text('作者没有留下名字');
+        author_field.textContent = '作者没有留下名字';
     }
-    $('#description').text(work.description);
-    $('#link').attr("href", "/works/" + id);
+    document.querySelector('#description').textContent = work.description
+    document.querySelector('#link').attributes.href.value = "/works/" + id;
 
-    $('.list').empty();
+    $('#list').empty();
     for (let i = 1; i <= Math.min(work.imgCount, 4); i++) {
         let imgUrl = id + "/images/" + String(i) + ".png";
-        let cls = "";
-        if (i === 1) {
-            cls = "class='active'"
-        } else {
-            cls = ""
+        let li = document.createElement('li');
+        let img = document.createElement('img')
+        img.src= imgUrl;
+        li.appendChild(img)
+        li.classList.add('listItem')
+        if(i === 1) {
+            li.classList.add('active');
         }
-        let li = "<li " + cls + "><img src='"+imgUrl+"'></li>";
-        $(".list").append(li);
+        document.querySelector('#list').appendChild(li)
     }
     changeShowcase();
-    $('li').on('tap', (param) => {
-        $('li').removeClass("active");
-        param.currentTarget.classList.add("active");
-        changeShowcase();
+    let lis = document.querySelectorAll('.listItem')
+    lis.forEach( (li) => {
+        li.addEventListener('click', (param) => {
+            lis.forEach( (li) => {
+                li.classList.remove('active')
+            })
+            // li.classList.remove('active');
+            param.currentTarget.classList.add('active');
+            changeShowcase();
+        })
     })
-    $('li').on('click', (param) => {
-        $('li').removeClass("active");
-        param.currentTarget.classList.add("active");
-        changeShowcase();
-    })
+    // $('li').on('tap', (param) => {
+    //     $('li').removeClass("active");
+    //     param.currentTarget.classList.add("active");
+    //     changeShowcase();
+    // })
+    // $('li').on('click', (param) => {
+    //     $('li').removeClass("active");
+    //     param.currentTarget.classList.add("active");
+    //     changeShowcase();
+    // })
 }
 
 function changeShowcase() {
     let url = document.querySelector('.active img').attributes.src.value
     document.querySelector('.showcase img').attributes.src.value = url
-    // let url = $('.active img').attr('src');
-    // $('.showcase img').attr('src', url);
 }
 },{"../database/dbManager":13,"fs":1}]},{},[46]);
