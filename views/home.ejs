@@ -23,6 +23,7 @@
             <% if (left) { %>
                 <div class="ui raised link cards two column">
             <% } %>
+                <% if (work.authors.length === 0) {work.authors = "作者没有留下名字"}%>
                     <div class="ui card" id=<%= work.id %> data-title=<%= work.title %> data-authors=<%= work.authors %> data-description=<%= work.description %> data-imgCount=<%= work.imgCount %> >
                         <div class="image">
                             <img class="thumbnail" src="/<%= work.id %>/images/1.png">
