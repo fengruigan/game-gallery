@@ -2522,7 +2522,7 @@ module.exports={
 		"title": "无标题",
 		"authors": [],
 		"description": "作者很懒，没有写简介",
-		"imgCount": 1,
+		"imgCount": 2,
 		"category": [
 			"无分类"
 		],
@@ -7030,20 +7030,34 @@ var dbManager = require('../database/dbManager'),
 $(document).ready( () => {
 
     resizeImg();
-    $('.ui.card').on('tap', (param) => {
-        $("#detail").hide();
-        var target = param.currentTarget;
-        $(target).parent().after($("#detail"));
-        $("#detail").fadeIn(400);
-        populateDetail(target.id);
+    let cards = document.querySelectorAll('.ui.card');
+    cards.forEach( (card) => {
+        card.addEventListener('click', (param) => {
+            let detail = document.querySelector('#detail');
+            detail.style.display = "none";
+            let pathLen = param.path.length;
+            let target = param.path[pathLen - 7];
+            let parent = param.path[pathLen - 6];
+            populateDetail(target.id);
+            parent.after(detail);
+            detail.style.display = "block";
+        })
     })
-    $('.ui.card').on('click', (param) => {
-        $("#detail").hide();
-        var target = param.currentTarget;
-        $(target).parent().after($("#detail"));
-        $("#detail").fadeIn(400);
-        populateDetail(target.id);
-    })
+
+    // $('.ui.card').on('tap', (param) => {
+    //     $("#detail").hide();
+    //     var target = param.currentTarget;
+    //     $(target).parent().after($("#detail"));
+    //     $("#detail").fadeIn(400);
+    //     populateDetail(target.id);
+    // })
+    // $('.ui.card').on('click', (param) => {
+    //     $("#detail").hide();
+    //     var target = param.currentTarget;
+    //     $(target).parent().after($("#detail"));
+    //     $("#detail").fadeIn(400);
+    //     populateDetail(target.id);
+    // })
 })
 
 $(window).resize( () => {
@@ -7051,8 +7065,14 @@ $(window).resize( () => {
 })
 
 function resizeImg() {
-    $('.thumbnail').height($('.thumbnail').width() * 9 / 16)
-    $('.ui.placeholder').height($('.ui.placeholder').width() * 9 / 16)
+
+    let thumbs = document.querySelectorAll('.thumbnail');
+    thumbs.forEach( (thumb) => {
+        thumb.style.height = String(thumb.width * 9 / 16) + "px"
+    })
+    
+    // $('.thumbnail').height($('.thumbnail').width() * 9 / 16)
+    // $('.ui.placeholder').height($('.ui.placeholder').width() * 9 / 16)
 };
 
 function populateDetail(id) {
@@ -7093,7 +7113,9 @@ function populateDetail(id) {
 }
 
 function changeShowcase() {
-    let url = $('.active img').attr('src');
-    $('.showcase img').attr('src', url);
+    let url = document.querySelector('.active img').attributes.src.value
+    document.querySelector('.showcase img').attributes.src.value = url
+    // let url = $('.active img').attr('src');
+    // $('.showcase img').attr('src', url);
 }
 },{"../database/dbManager":13,"fs":1}]},{},[46]);
