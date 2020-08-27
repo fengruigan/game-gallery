@@ -7107,17 +7107,11 @@ function populateDetail(id) {
             lis.forEach( (li) => {
                 li.classList.remove('active')
             })
-            // li.classList.remove('active');
             param.currentTarget.classList.add('active');
             changeShowcase();
         })
     })
     // $('li').on('tap', (param) => {
-    //     $('li').removeClass("active");
-    //     param.currentTarget.classList.add("active");
-    //     changeShowcase();
-    // })
-    // $('li').on('click', (param) => {
     //     $('li').removeClass("active");
     //     param.currentTarget.classList.add("active");
     //     changeShowcase();

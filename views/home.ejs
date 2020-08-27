@@ -160,26 +160,12 @@
                         <a id="link" href='#' class="ui green fluid huge button">去看看！</a>
                     </div>
                     <div class='ten wide column'>
-                        <!-- <div class="row">
-                            <h3>
-                                Game Title Here
-                            </h3>
-                        </div> -->
                         <div class="row">
                             <div class="ui image showcase">
                                 <img src="images/marine_vs_zergling_thumbnail.png">
                             </div>
                         </div>
                         <ul id="list">
-                            <!-- <li class="active">
-                                <img src="images/CGJ_theme.png">
-                            </li>
-                            <li>
-                                <img src="images/CGJ_game_thumbnail.png">
-                            </li>
-                            <li>
-                                <img src="images/marine_vs_zergling_thumbnail.png">
-                            </li> -->
                         </ul>
                     </div>
                 <!-- </div> -->
@@ -188,6 +174,14 @@
 
 </div>
 
+<script>
+    function onLoad() {
+        let thumbs = document.querySelectorAll('.thumbnail');
+        thumbs.forEach( (thumb) => {
+            thumb.style.height = String(thumb.width * 9 / 16) + "px"
+        })
+    }
+</script>
 <script src="/scripts/home.js"></script>
 
 <%- include('./partials/footer') %>
