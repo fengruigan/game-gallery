@@ -2,7 +2,7 @@
 
 <div class="title">
 	<h1>
-		<i class="archive icon"></i> Indie Gallery
+		<i class="archive icon"></i> Indie Gallery/独立游戏作品集
 	</h1>
 	<h2>
 		A gallery for indie games and the stories behind them.
@@ -14,26 +14,32 @@
 
 <div class="main ui container">
     <h2>
-        <i class="child icon"></i> All Works
+        <i class="child icon"></i> 全部作品
     </h2>
     <hr class="abrupt">
-    <div class="ui raised link cards two column">
+    <!-- <div class="ui raised link cards two column"> -->
+        <% let left = true %>
         <% works.forEach( (work)=> { %>
-            <div class="ui card">
-                <div class="ui placeholder">
-                    <div class="image"></div>
-                    <!-- <img src="#" class="thumbnail"> -->
-                    <!-- <img src="images/marine_vs_zergling_thumbnail.png"> -->
-                </div>
-                <div class="content">
-                    <div class="header">
-                        <%= work.title %>
+            <% if (left) { %>
+                <div class="ui raised link cards two column">
+            <% } %>
+                    <div class="ui card" id=<%= work.id %>>
+                        <div class="image">
+                            <img src="/<%= work.id %>/images/1.png">
+                        </div>
+                        <div class="content">
+                            <div class="header">
+                                <%= work.title %>
+                            </div>
+                            <div class="description">
+                                <%= work.description %>
+                            </div>
+                        </div>
                     </div>
-                    <div class="description">
-                        <%= work.description %>
-                    </div>
+            <% if(!left) { %> 
                 </div>
-            </div>
+            <% } %>
+            <% left = !left %>
         <% }) %>
         <!-- <div class="ui card">
             <div class="image">
@@ -48,11 +54,11 @@
                 </div>
             </div>
         </div> -->
-    </div>
+    <!-- </div> -->
 
 
     <h2>
-		<i class="child icon"></i> CiGA Game Jam
+		<i class="child icon"></i> 2020 CiGA Game Jam (8月14 ~ 16日)
 	</h2>
     <hr class="abrupt">
     <!-- <div class="row"> -->
@@ -66,148 +72,86 @@
     <hr class="smooth">
 
     <h3 style="text-align: left">
-        Below are some of the works submitted to the event <br>
+        下面是这次比赛的参赛作品
     </h3>
 
-    <div class="ui raised link cards two column">
-        <!-- individual link cards are a tags -->
-        <div class="ui card">
-            <div class="image">
-                <img src="images/CGJ_game_thumbnail.png" class="thumbnail">
-            </div>
-            <div class="content">
-                <div class="header">
-                    Game Title
+    <% left = true %>
+    <% works.forEach( (work)=> { %>
+        <% if (work.event === "2020-CiGA") { %>
+            <% if (left) { %>
+                <div class="ui raised link cards two column">
+            <% } %>
+                    <div class="ui card" id=<%= work.id %>>
+                        <div class="image">
+                            <img src="/<%= work.id %>/images/1.png">
+                        </div>
+                        <div class="content">
+                            <div class="header">
+                                <%= work.title %>
+                            </div>
+                            <div class="description">
+                                <%= work.description %>
+                            </div>
+                        </div>
+                    </div>
+            <% if(!left) { %> 
                 </div>
-                <div class="description">
-                    Description
-                </div>
-            </div>
-        </div>
-        <div class="ui card">
-            <div class="ui placeholder">
-                <div class="image" style="height:200px;"></div>
-                <!-- <img class="thumbnail" style="width: 100%"> -->
-            </div>
-            <div class="content">
-                <div class="header">
-                    Game Title
-                </div>
-                <div class="description">
-                    Description
-                </div>
-            </div>
-        </div>
-        <div class="ui card">
-            <div class="ui placeholder">
-                <div class="image" style="height:200px;"></div>
-            </div>
-            <div class="content">
-                <div class="header">
-                    Game Title
-                </div>
-                <div class="description">
-                    Description
-                </div>
-            </div>
-        </div>
-        <div class="ui card">
-            <div class="ui placeholder">
-                <div class="image" style="height:200px;"></div>
-            </div>
-            <div class="content">
-                <div class="header">
-                    Game Title
-                </div>
-                <div class="description">
-                    Description
-                </div>
-            </div>
-        </div>
+            <% } %>
+            <% left = !left %>
+        <% } %>
+    <% }) %>
 
-        <div class="ui card">
-            <div class="image">
-                <img src="images/CGJ_theme.png" class="thumbnail">
-            </div>
-            <div class="content">
-                <div class="header">
-                    Game Title
+    <!-- <div class="ui raised link cards two column">
+            <div class="ui card">
+                <div class="image">
+                    <img src="images/CGJ_game_thumbnail.png" class="thumbnail">
                 </div>
-                <div class="description">
-                    Description
-                </div>
-            </div>
-        </div>
-        <div class="ui card">
-            <div class="image">
-                <img src="images/marine_vs_zergling_thumbnail.png" class="thumbnail">
-            </div>
-            <div class="content">
-                <div class="header">
-                    Game Title
-                </div>
-                <div class="description">
-                    Description
+                <div class="content">
+                    <div class="header">
+                        Game Title
+                    </div>
+                    <div class="description">
+                        Description
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="ui card">
-            <div class="image">
-                <img src="images/CGJ_theme.png" class="thumbnail">
-            </div>
-            <div class="content">
-                <div class="header">
-                    Game Title
+            <div class="ui card">
+                <div class="ui placeholder">
+                    <div class="image" style="height:200px;"></div>
                 </div>
-                <div class="description">
-                    Description
-                </div>
-            </div>
-        </div>
-        <div class="ui card">
-            <div class="image">
-                <img src="images/CGJ_game_thumbnail.png" class="thumbnail">
-            </div>
-            <div class="content">
-                <div class="header">
-                    Game Title
-                </div>
-                <div class="description">
-                    Description
+                <div class="content">
+                    <div class="header">
+                        Game Title
+                    </div>
+                    <div class="description">
+                        Description
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="ui card">
-            <div class="image">
-                <img src="images/marine_vs_zergling_thumbnail.png" class="thumbnail">
-            </div>
-            <div class="content">
-                <div class="header">
-                    Game Title
-                </div>
-                <div class="description">
-                    Description
-                </div>
-            </div>
-        </div>
-    </div>
+    </div>  -->
 
-    <div class="ui celled grid" id="detail">
+
+    <!-- This is a pre-structured card that displays the detail infos about the clicked work -->
+    <div class="ui celled grid" id="detail" style="display:none">
             <div class="row">
                 <!-- <div class="ui celled grid"> -->
                     <div class="six wide column">
                         <div class="ui raised segment">
-                            <h3>
+                            <h3 id="title">
                                 Game Title
                             </h3>
-                            <h4>
-                                Author
-                            </h4>
-                            <p>
+                            <p id="description">
                                 Description
                             </p>
+                            <div class="ui divider"></div>
+                            <h3>
+                                作者
+                            </h3>
+                            <h4 id="author">
+                                Author
+                            </h4>
                         </div>
-                        <a href='/games' class="ui green fluid huge button">Go Take A Look!</a>
+                        <a id="link" href='#' class="ui green fluid huge button">去看看！</a>
                     </div>
                     <div class='ten wide column'>
                         <!-- <div class="row">
@@ -221,7 +165,7 @@
                             </div>
                         </div>
                         <ul class="list">
-                            <li class="active">
+                            <!-- <li class="active">
                                 <img src="images/CGJ_theme.png">
                             </li>
                             <li>
@@ -229,58 +173,12 @@
                             </li>
                             <li>
                                 <img src="images/marine_vs_zergling_thumbnail.png">
-                            </li>
-
+                            </li> -->
                         </ul>
                     </div>
                 <!-- </div> -->
             </div>
     </div>
-
-    <!-- </div> -->
-
-    <div class="ui celled grid">
-        <div class="row">
-            <!-- <div class="ui celled grid"> -->
-                <div class="six wide column">
-                    <h3>
-                        Game Title
-                    </h3>
-                    <h4>
-                        Author
-                    </h4>
-                    <p>
-                        Description
-                    </p>
-                </div>
-                <div class='ten wide column'>
-                    <!-- <div class="row">
-                        <h3>
-                            Game Title Here
-                        </h3>
-                    </div> -->
-                    <div class="row">
-                        <div class="ui image showcase">
-                            <img src="images/marine_vs_zergling_thumbnail.png">
-                        </div>
-                    </div>
-                    <ul class="list">
-                        <li class="active">
-                            <img src="images/CGJ_theme.png">
-                        </li>
-                        <li>
-                            <img src="images/CGJ_game_thumbnail.png">
-                        </li>
-                        <li>
-                            <img src="images/marine_vs_zergling_thumbnail.png">
-                        </li>
-
-                    </ul>
-                </div>
-            <!-- </div> -->
-        </div>
-    </div>
-    
 
 </div>
 

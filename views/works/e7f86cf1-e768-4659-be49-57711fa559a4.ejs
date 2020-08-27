@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<!-- <title>Cocos Creator | Marine_vs_Zerglings</title> -->
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1"/>
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="full-screen" content="yes"/>
+	<meta name="screen-orientation" content="portrait"/>
+	<meta name="x5-fullscreen" content="true"/>
+	<meta name="360-fullscreen" content="true"/>
+	<meta name="renderer" content="webkit"/>
+	<meta name="force-rendering" content="webkit"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<link rel="stylesheet" type="text/css" href= "/<%= work.id %>/stylesheets/style-desktop.css"/>
+	<!-- <link rel="icon" href="favicon.ico"/> -->
+	<title><%= work.title %>|独立游戏展</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+	<link rel="stylesheet" href="/stylesheets/main.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</head>
+<body>
+<!-- <h1 class="header">Marine_vs_Zerglings</h1> -->
+	
+	<div class="ui fixed inverted violet menu">
+		<div class="ui container">
+			<div class="header item">
+				<!-- this redirects to home page -->
+				<a href="/"><i class="archive icon"></i> Indie Gallery/独立游戏展</a>
+			</div>
+			<div class="header item">
+				<!-- this will likely be a drop down menu of all topics -->
+				<a href="#"><i class="flask icon"></i> 展示你的游戏</a>
+			</div>
+			<div class="right menu">
+				<div class="header item">
+					<!-- this redirects to about us page -->
+					<a href="#"><i class="info icon"></i> About Me</a> 
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="title">
+		<h1>
+			<i class="gamepad icon"></i> <%= work.title %>
+		</h1>
+		<h2>
+			作者：<%= work.authors %>
+		</h2>
+	</div>
+
+	<div class="main ui container">
+		<h2>
+			<i class="info blue icon"></i> 游戏简介
+		</h2>
+		<hr class="smooth">
+		<p>
+			这是一场天灾，还是人为，莉莉丝不清楚，她只知道她家的房子正在被巨型蚂蚁撕开口子，源源不断的蚂蚁从裂缝中涌入。玩家需要利用空投的物资，保护莉莉丝，just do it！
+		</p>
+		<h2>
+			<i class="thumbtack violet icon"></i> 游戏画面
+		</h2>
+		<hr class="smooth">
+		<div class="ui placeholder">
+			<div class="image"></div>
+		</div>
+		
+	
+
+
+<!-- <div class="main ui container"> -->
+	<h2>
+		<i class="user circle icon"></i> 开发团队
+	</h2>
+	<hr class="smooth">
+	<div style="display:flex;justify-content: center;">
+		<img src="/<%= work.id %>/images/2.png">
+	</div>
+
+
+
+	<h2>
+		<i class="beer orange icon"></i> 开发历程
+	</h2>
+	<hr class="smooth">
+	<p>
+		在8.14的晚上我们小组6个人从五点开始守在直播间，紧张的等着题目的公布。在6点拿到题目之后，我们蒙了很久：这啥啊？不是吧啊sir，这啥题目啊？？？没办法，还是硬着头皮上吧，于是开始了三个小时的头脑风暴，我们提出了无数个想法又一个个否定：不行这个和主题没啥关系吧；不行这个好像不是很符合主题……。最后的最后，我们放弃了从主题到玩法的过程，直接开始从玩法到主题的思路。
+	</p>
+	<p>
+		我们开始就决定不做2d横板大闯关益智小游戏，没有理由，因为我们程序大佬就是坠dio的！！！然后团队分别给出：塔防、动作和揭秘游戏，经过一番讨论，大家最后把预制作的玩法确定为塔防+生存（不知道为啥好多队伍都做了快递？emm好奇怪）。
+	</p>
+	<p>
+		确定做什么内容之后接下来就是开始正常的制作流程了：策划开始写配置表，美术开始绘制场景与人物，程序开始掉头发的爆肝，音乐大佬撑起音效……我们组遇到的最大的问题其实还是时间不足，许多内容没来的及制作：物品栏、得分机制还有新手教程…太难受了呜呜呜/(ㄒoㄒ)/~~
+	</p>
+	<h2>
+		<i class="gamepad blue icon"></i> 游玩体验
+	</h2>
+	<hr class="smooth">
+	<p>
+		我们从第一个版本出来之后一直在玩，大家一边吐槽太难了，玩个塔防游戏还要看脸，小女孩（主角）走路速度太慢之类的，然后为了血怒前仇，大家一致决定游戏前面很难，当小女孩拿到关键道具之后怒杀蚂蚁！嘿嘿嘿！（虽然是我坚持没让程序大佬改走路速度的emmm）
+	</p>
+	<h2>
+		<i class="heart red icon"></i> 心得
+	</h2>
+	<p>
+		其实这次比赛真的给我带来了不一样的体会：游戏制作的流程，团队的沟通的重要性，以及最重要的相互理解与合作。两位程序大佬油油和影子轮流肝程序，美术大佬罗德爆肝所有绘制需求，音乐大佬健康独自一人撑起音效的天，策划大佬三思带着弟中弟（我）写各种策划所需。这些东西到今天都很难相信是48h之内完成的，并且难以置信的做出了包括微信小游戏在内的8个迭代版本。真的非常感谢各位大佬可以包容弟中弟各种奇葩时刻（擦脸.gif）
+	</p>
+
+
+	<h2>
+		<i class="gamepad green icon"></i> 游戏试玩
+	</h2>
+	<hr class="smooth">
+	<p>
+		微信可以扫小程序码直接游玩
+	</p>
+	<!-- <div class="ui small image"> -->
+	<div style="display:flex;justify-content:center;">
+		<img src="/<%= work.id %>/images/qrcode.jpg">
+	</div>
+	<div class="ui divider hidden"></div>
+	<p>
+		保护莉莉丝到空投防护服并逃出去，或者利用箱子填满20条裂缝。箱子可以阻挡蚂蚁。
+	</p>
+	<h3 style="text-align: left">
+		操作（电脑）：
+	</h3>
+	<ul>
+		<li>使用方向键移动</li>
+		<li>使用“Z”键拾取和放置物品</li>
+	</ul>
+	
+	
+	
+	<!-- <div id="GameDiv" style="width:1280px; height: 720px;"> -->
+	<div id="GameDiv" style="margin-top: 5em; margin-bottom: 10em">
+	<canvas id="GameCanvas" width="1280" height="720"></canvas>
+	<div id="splash">
+		<div class="progress-bar stripes">
+		<span style="width: 0%"></span>
+		</div>
+	</div>
+	</div>
+
+
+	<a href="/" class="ui blue button">返回</a>
+</div>
+<!-- </div>	 -->
+
+	<hr class="abrupt">
+	<h2 id="tradmark">
+		<i class="phone icon"></i> Contact Us <br>
+		Fengrui Gan <i class="copyright outline icon"></i> 2020
+	</h2>
+		
+	
+
+<script src="/e7f86cf1-e768-4659-be49-57711fa559a4/src/settings.js" charset="utf-8"></script>
+<script src="/e7f86cf1-e768-4659-be49-57711fa559a4/scripts/main.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+(function () {
+    // open web debugger console
+    if (typeof VConsole !== 'undefined') {
+        window.vConsole = new VConsole();
+    }
+
+    // var splash = document.getElementById('splash');
+    // splash.style.display = 'block';
+
+    var cocos2d = document.createElement('script');
+    cocos2d.async = true;
+    cocos2d.src = window._CCSettings.debug ? '/e7f86cf1-e768-4659-be49-57711fa559a4/scripts/cocos2d-js.js' : '/e7f86cf1-e768-4659-be49-57711fa559a4/scripts/cocos2d-js-min.js';
+
+    var engineLoaded = function () {
+        document.body.removeChild(cocos2d);
+        cocos2d.removeEventListener('load', engineLoaded, false);
+        window.boot();
+    };
+    cocos2d.addEventListener('load', engineLoaded, false);
+    document.body.appendChild(cocos2d);
+})();
+</script>
+
+<script>
+	$(document).ready( () => {
+    resizeImg();
+	})
+
+	$(window).resize( () => {
+		resizeImg();
+	})
+
+	function resizeImg() {
+		// $('.thumbnail').height($('.thumbnail').width() * 9 / 16)
+		$('.ui.placeholder').height($('.ui.placeholder').width() * 9 / 16)
+	};
+</script>
+
+</body>
+</html>
