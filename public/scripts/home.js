@@ -7026,6 +7026,7 @@ var dbManager = require('../database/dbManager'),
 // ========================= BELOW ARE WORKING SCRIPTS
 
 onLoad()
+alert('this script is running')
 
 function onLoad() {
     resizeImg();
