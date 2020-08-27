@@ -1,7 +1,7 @@
 // var imageManager = require('../../manager/imageManager.json')
 // var db = require('../../database/workDB.json')
-var dbManager = require('../database/dbManager')
-
+var dbManager = require('../database/dbManager'),
+    fs = require('fs');
 
 // ========================= BELOW ARE WORKING SCRIPTS
 
@@ -9,18 +9,14 @@ $(document).ready( () => {
 
     resizeImg();
     $('.ui.card').click((param) => {
-        $("#detail").fadeOut(50);
+        // $("#detail").fadeOut(10);
+        $("#detail").hide();
         var target = param.currentTarget;
-        $(target).after($("#detail"));
-        $("#detail").fadeIn();
+        $(target).parent().after($("#detail"));
+        $("#detail").fadeIn(400);
+        populateDetail(target.id);
         // $(target)
     })
-
-    let work = dbManager.read("e7f86cf1-e768-4659-be49-57711fa559a4");
-    let arr = $.map(work.authors, (author) => {
-        return [author]
-    })
-    console.log(arr)
 })
 
 $(window).resize( () => {
@@ -35,6 +31,26 @@ function resizeImg() {
 function populateDetail(id) {
     let work = dbManager.read(id);
     $('#title').text(work.title);
-    $('#author').text(Array.toString(work.author));
-    $('#description').text(work.description)
+    let authors = work.authors.join();
+    if (authors !== ""){
+        $('#author').text(authors);
+    } else {
+        $('#author').text('作者没有留下名字');
+    }
+    $('#description').text(work.description);
+    $('#link').attr("href", "/works/" + id);
+    $('.showcase img').attr("src", "/" + id + "/images/1.png");
+
+    $('.list').empty();
+    for (let i = 1; i <= Math.min(work.imgCount, 4); i++) {
+        let imgUrl = id + "/images/" + String(i) + ".png";
+        let cls = "";
+        if (i === 1) {
+            cls = "class='active'"
+        } else {
+            cls = ""
+        }
+        let li = "<li " + cls + "><img src='"+imgUrl+"'></li>";
+        $(".list").append(li);
+    }
 }

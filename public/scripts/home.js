@@ -2377,12 +2377,26 @@ class dbManager{
             }
             // ================ update newWork into db ================
             db[id] = newWork;
+            // ================ make sure id does not change ================
+            db[id].id = id;
             // push category array
             newWork.category.forEach( (c) => {
+                if (db.categories[c] === undefined) {
+                    // create category if does not exist
+                    db.categories[c] = [];
+                }
                 db.categories[c].push(id);
             });
             // ================ push event array ================
-            db.event[work.event].push(id);
+            if (newWork.event !== undefined) {
+                if (db.event[newWork.event] === undefined) {
+                    // create event if does not exist
+                    db.event[newWork.event] = [];
+                }
+                db.event[newWork.event].push(id);
+            } else {
+                db.event["无"].push(id);
+            }
             //  ================ save db ================
             fs.writeFile("./database/workDB.json", JSON.stringify(db, null, '\t'), 'utf8', () => {
                 console.log(id + " updated");
@@ -2470,19 +2484,19 @@ module.exports={
 		"134a6835-2642-412f-a1d1-22f59b31dbd0"
 	],
 	"categories": {
-		"塔防": [
-			"e7f86cf1-e768-4659-be49-57711fa559a4"
-		],
 		"无分类": [
 			"134a6835-2642-412f-a1d1-22f59b31dbd0"
+		],
+		"塔防": [
+			"e7f86cf1-e768-4659-be49-57711fa559a4"
 		]
 	},
 	"event": {
-		"2020-CiGA": [
-			"e7f86cf1-e768-4659-be49-57711fa559a4"
-		],
 		"无": [
 			"134a6835-2642-412f-a1d1-22f59b31dbd0"
+		],
+		"2020-CiGA": [
+			"e7f86cf1-e768-4659-be49-57711fa559a4"
 		]
 	},
 	"e7f86cf1-e768-4659-be49-57711fa559a4": {
@@ -2497,6 +2511,7 @@ module.exports={
 			"健康大王"
 		],
 		"description": "这是一场天灾，还是人为，莉莉丝不清楚，她只知道她家的房子正在被巨型蚂蚁撕开口子，源源不断的蚂蚁从裂缝中涌入。玩家需要利用空投的物资，保护莉莉丝，just do it！",
+		"imgCount": 3,
 		"category": [
 			"塔防"
 		],
@@ -2506,7 +2521,8 @@ module.exports={
 		"id": "134a6835-2642-412f-a1d1-22f59b31dbd0",
 		"title": "无标题",
 		"authors": [],
-		"description": "作者很懒，没有写简介",
+        "description": "作者很懒，没有写简介",
+        "imgCount": 1,
 		"category": [
 			"无分类"
 		],
@@ -2519,12 +2535,14 @@ class work {
     title = '';
     authors = '';
     description = '';
+    imgCount = 0;
     category;
     event;
-    constructor(title="无标题", authors=[], description="作者很懒，没有写简介", category=["无分类"], event="无") {
+    constructor(title="无标题", authors=[], description="作者很懒，没有写简介", imgCount = 0, category=["无分类"], event="无") {
         this.title = title;
         this.authors = authors;
         this.description = description;
+        this.imgCount = imgCount;
         this.category = category;
         this.event = event;
     }
@@ -7004,8 +7022,8 @@ function wrappy (fn, cb) {
 },{}],46:[function(require,module,exports){
 // var imageManager = require('../../manager/imageManager.json')
 // var db = require('../../database/workDB.json')
-var dbManager = require('../database/dbManager')
-
+var dbManager = require('../database/dbManager'),
+    fs = require('fs');
 
 // ========================= BELOW ARE WORKING SCRIPTS
 
@@ -7013,18 +7031,14 @@ $(document).ready( () => {
 
     resizeImg();
     $('.ui.card').click((param) => {
-        $("#detail").fadeOut(50);
+        // $("#detail").fadeOut(10);
+        $("#detail").hide();
         var target = param.currentTarget;
-        $(target).after($("#detail"));
-        $("#detail").fadeIn();
+        $(target).parent().after($("#detail"));
+        $("#detail").fadeIn(400);
+        populateDetail(target.id);
         // $(target)
     })
-
-    let work = dbManager.read("e7f86cf1-e768-4659-be49-57711fa559a4");
-    let arr = $.map(work.authors, (author) => {
-        return [author]
-    })
-    console.log(arr)
 })
 
 $(window).resize( () => {
@@ -7039,7 +7053,27 @@ function resizeImg() {
 function populateDetail(id) {
     let work = dbManager.read(id);
     $('#title').text(work.title);
-    $('#author').text(Array.toString(work.author));
-    $('#description').text(work.description)
+    let authors = work.authors.join();
+    if (authors !== ""){
+        $('#author').text(authors);
+    } else {
+        $('#author').text('作者没有留下名字');
+    }
+    $('#description').text(work.description);
+    $('#link').attr("href", "/works/" + id);
+    $('.showcase img').attr("src", "/" + id + "/images/1.png");
+
+    $('.list').empty();
+    for (let i = 1; i <= Math.min(work.imgCount, 4); i++) {
+        let imgUrl = id + "/images/" + String(i) + ".png";
+        let cls = "";
+        if (i === 1) {
+            cls = "class='active'"
+        } else {
+            cls = ""
+        }
+        let li = "<li " + cls + "><img src='"+imgUrl+"'></li>";
+        $(".list").append(li);
+    }
 }
-},{"../database/dbManager":13}]},{},[46]);
+},{"../database/dbManager":13,"fs":1}]},{},[46]);

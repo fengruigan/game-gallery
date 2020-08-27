@@ -127,12 +127,26 @@ class dbManager{
             }
             // ================ update newWork into db ================
             db[id] = newWork;
+            // ================ make sure id does not change ================
+            db[id].id = id;
             // push category array
             newWork.category.forEach( (c) => {
+                if (db.categories[c] === undefined) {
+                    // create category if does not exist
+                    db.categories[c] = [];
+                }
                 db.categories[c].push(id);
             });
             // ================ push event array ================
-            db.event[work.event].push(id);
+            if (newWork.event !== undefined) {
+                if (db.event[newWork.event] === undefined) {
+                    // create event if does not exist
+                    db.event[newWork.event] = [];
+                }
+                db.event[newWork.event].push(id);
+            } else {
+                db.event["无"].push(id);
+            }
             //  ================ save db ================
             fs.writeFile("./database/workDB.json", JSON.stringify(db, null, '\t'), 'utf8', () => {
                 console.log(id + " updated");
