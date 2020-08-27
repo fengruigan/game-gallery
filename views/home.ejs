@@ -23,7 +23,7 @@
             <% if (left) { %>
                 <div class="ui raised link cards two column">
             <% } %>
-                    <div class="ui card" id=<%= work.id %>>
+                    <div class="ui card" id=<%= work.id %> data-title=<%= work.title %> data-authors=<%= work.authors %> data-description=<%= work.description %> data-imgCount=<%= work.imgCount %> >
                         <div class="image">
                             <img class="thumbnail" src="/<%= work.id %>/images/1.png">
                         </div>
@@ -84,7 +84,7 @@
             <% if (left) { %>
                 <div class="ui raised link cards two column">
             <% } %>
-                    <div class="ui card" id=<%= work.id %>>
+                    <div class="ui card" id=<%= work.id %> data-title=<%= work.title %> data-authors=<%= work.authors %> data-description=<%= work.description %> data-imgCount=<%= work.imgCount %> >
                         <div class="image">
                             <img class="thumbnail" src="/<%= work.id %>/images/1.png">
                         </div>
@@ -182,6 +182,6 @@
         })
     }
 </script> -->
-<script src="/scripts/test.js"></script>
+<script src="/scripts/home.js"></script>
 
 <%- include('./partials/footer') %>

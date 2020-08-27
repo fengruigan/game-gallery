@@ -34,10 +34,7 @@ let id = uuid()
 // let files = fs.readdirSync(path);
 // console.log(files.length)
 
-let work = dbManager.read("134a6835-2642-412f-a1d1-22f59b31dbd0")
-let authors = work.authors.join();
-if (authors !== ""){
-    console.log(authors);
-} else {
-    console.log('作者没有留下名字');
-}
+let work = dbManager.readAll()[0];
+work.data = JSON.stringify(dbManager.read(work.id));
+// let data = JSON.stringify(work)
+console.log(work.data)
