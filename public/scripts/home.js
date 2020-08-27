@@ -7030,7 +7030,14 @@ var dbManager = require('../database/dbManager'),
 $(document).ready( () => {
 
     resizeImg();
-    $('.ui.card').click((param) => {
+    $('.ui.card').on('tap', (param) => {
+        $("#detail").hide();
+        var target = param.currentTarget;
+        $(target).parent().after($("#detail"));
+        $("#detail").fadeIn(400);
+        populateDetail(target.id);
+    })
+    $('.ui.card').on('click', (param) => {
         $("#detail").hide();
         var target = param.currentTarget;
         $(target).parent().after($("#detail"));
@@ -7073,7 +7080,12 @@ function populateDetail(id) {
         $(".list").append(li);
     }
     changeShowcase();
-    $('li').click( (param) => {
+    $('li').on('tap', (param) => {
+        $('li').removeClass("active");
+        param.currentTarget.classList.add("active");
+        changeShowcase();
+    })
+    $('li').on('click', (param) => {
         $('li').removeClass("active");
         param.currentTarget.classList.add("active");
         changeShowcase();
