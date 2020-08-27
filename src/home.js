@@ -16,7 +16,7 @@ $(document).ready( () => {
             let pathLen = param.path.length;
             let target = param.path[pathLen - 7];
             let parent = param.path[pathLen - 6];
-            populateDetail(target.id);
+            // populateDetail(target.id);
             parent.after(detail);
             detail.style.display = "block";
         })
