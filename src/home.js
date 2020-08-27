@@ -9,13 +9,11 @@ $(document).ready( () => {
 
     resizeImg();
     $('.ui.card').click((param) => {
-        // $("#detail").fadeOut(10);
         $("#detail").hide();
         var target = param.currentTarget;
         $(target).parent().after($("#detail"));
         $("#detail").fadeIn(400);
         populateDetail(target.id);
-        // $(target)
     })
 })
 
@@ -39,7 +37,6 @@ function populateDetail(id) {
     }
     $('#description').text(work.description);
     $('#link').attr("href", "/works/" + id);
-    $('.showcase img').attr("src", "/" + id + "/images/1.png");
 
     $('.list').empty();
     for (let i = 1; i <= Math.min(work.imgCount, 4); i++) {
@@ -53,4 +50,15 @@ function populateDetail(id) {
         let li = "<li " + cls + "><img src='"+imgUrl+"'></li>";
         $(".list").append(li);
     }
+    changeShowcase();
+    $('li').click( (param) => {
+        $('li').removeClass("active");
+        param.currentTarget.classList.add("active");
+        changeShowcase();
+    })
+}
+
+function changeShowcase() {
+    let url = $('.active img').attr('src');
+    $('.showcase img').attr('src', url);
 }
