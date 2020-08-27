@@ -2,7 +2,10 @@
 
 // ========================= BELOW ARE WORKING SCRIPTS
 
-onLoad()
+
+$(document).ready( () => {
+    onLoad()
+})
 
 function onLoad() {
     resizeImg();
@@ -22,24 +25,10 @@ function onLoad() {
             let parent = target.parentElement;
             populateDetail(data);
             parent.after(detail);
-            detail.style.display = "block";
+            // detail.style.display = "block";
+            $("#detail").fadeIn(400);
         })
     })
-
-    // $('.ui.card').on('tap', (param) => {
-    //     $("#detail").hide();
-    //     var target = param.currentTarget;
-    //     $(target).parent().after($("#detail"));
-    //     $("#detail").fadeIn(400);
-    //     populateDetail(target.id);
-    // })
-    // $('.ui.card').on('click', (param) => {
-    //     $("#detail").hide();
-    //     var target = param.currentTarget;
-    //     $(target).parent().after($("#detail"));
-    //     $("#detail").fadeIn(400);
-    //     populateDetail(target.id);
-    // })
 
     window.addEventListener('resize', () => {
         resizeImg();
@@ -61,12 +50,7 @@ function populateDetail(data) {
     let work = data
     document.querySelector('#title').textContent = work.title
     // let authors = work.authors.join();
-    let author_field = document.querySelector('#author')
-    if (work.authors !== ""){
-        author_field.textContent = work.authors;
-    } else {
-        author_field.textContent = '作者没有留下名字';
-    }
+    document.querySelector('#author').textContent = work.authors;
     document.querySelector('#description').textContent = work.description
     document.querySelector('#link').attributes.href.value = "/works/" + work.id;
 
