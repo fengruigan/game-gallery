@@ -3,9 +3,7 @@
 // ========================= BELOW ARE WORKING SCRIPTS
 
 
-$(document).ready( () => {
-    onLoad()
-})
+onLoad()
 
 function onLoad() {
     resizeImg();
@@ -54,7 +52,10 @@ function populateDetail(data) {
     document.querySelector('#description').textContent = work.description
     document.querySelector('#link').attributes.href.value = "/works/" + work.id;
 
-    $('#list').empty();
+    // $('#list').empty();
+    while (list.firstChild) {
+        list.removeChild(list.firstChild);
+    }
     for (let i = 1; i <= Math.min(work.imgCount, 4); i++) {
         let imgUrl = "/" + work.id + "/images/" + String(i) + ".png";
         let li = document.createElement('li');
