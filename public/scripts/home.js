@@ -23,8 +23,8 @@ function onLoad() {
             let parent = target.parentElement;
             populateDetail(data);
             parent.after(detail);
-            // detail.style.display = "block";
-            $("#detail").fadeIn(400);
+            detail.style.display = "block";
+            // $("#detail").fadeIn(400);
         })
     })
 
