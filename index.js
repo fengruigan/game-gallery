@@ -39,11 +39,9 @@ app.get('/works/:id', (req,res) => {
     }
 })
 
-
-// app.get('/games', (req,res) => {
-//     // res.sendFile(__dirname + "/views/games/CGJ.html");
-//     res.render("works/e7f86cf1-e768-4659-be49-57711fa559a4")
-// })
+app.get('/about', (req,res) => {
+    res.render('about');
+})
 
 app.listen(process.env.PORT || 8000, () => {
     console.log('Server running');
