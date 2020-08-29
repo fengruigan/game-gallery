@@ -19,6 +19,7 @@ class dbManager{
             if (db.categories[c] === undefined) {
                 // create category if does not exist
                 db.categories[c] = [];
+                db.list.push(c)
             }
             db.categories[c].push(id);
         });
