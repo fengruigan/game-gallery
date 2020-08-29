@@ -1,0 +1,92 @@
+<%- include('../partials/work-header') %>
+
+<div class="title">
+    <h1>
+        <i class="gamepad icon"></i> <%= work.title %>
+    </h1>
+    <h2>
+        作者：
+    </h2>
+    <p>
+        <%= work.authors %>
+    </p>
+</div>
+
+<div class="main ui container">
+    <h2>
+        <i class="info blue icon"></i> 游戏简介
+    </h2>
+    <hr class="smooth">
+    <p>
+        主人公是一个机器人，它为了防止人类不断的开采自然资源，因此打算收集这些自然资源把它们运往地底深处防止被人类开采到。
+    </p>
+    <h2>
+        <i class="thumbtack violet icon"></i> 游戏画面
+    </h2>
+    <hr class="smooth">
+    <div class="ui placeholder">
+        <div class="image"></div>
+    </div>
+
+    <h2>
+		<i class="user circle icon"></i> 开发团队
+	</h2>
+	<hr class="smooth">
+	<div style="display:flex;justify-content: center;">
+		<img src="/<%= work.id %>/images/authors.png">
+    </div>
+    
+    <h2>
+		<i class="beer orange icon"></i> 开发历程
+	</h2>
+	<hr class="smooth">
+	<p>
+        这是我第一次参加game jam，由于我是一个人参加，所以在题目还没有公布之前，我就打算做一个小游戏，并且类型限定在横版跳跃。(因为这个我刚好最近在学习相关的内容hhhh)    
+    </p>
+	<p>
+        在这48小时的过程中，可能由于我自身开发游戏经验的不足，经常会出现，当下想出的某个想法在几个小时之后就被推翻了，或者几个小时之后灵感闪现发现了更好的想法类似的情况，于是整个设计又要推导重来，整个过程反反复复的弄了好几次，然后到最终16号的凌晨我才决定了当前的方案。    
+    </p>
+	<p>
+        在这次的game jam中我的时间里程大概是这样的，14-15号进行美术资源的制作和想法的产生，在这个游戏中除了平台之外的美术资源是由我自己制作的。从16号开始进行代码的逻辑的编写，一直到差不多到16号下午3-4点的时候基本的核心玩法已经完成。两天只睡了不到8个小时o(╥﹏╥)o    
+    </p>
+
+	<h2>
+		<i class="gamepad blue icon"></i> 游玩体验
+	</h2>
+	<hr class="smooth">
+	<p>
+        u1s1我感觉这个游戏还是有点难度，在比赛结束之后我反反复复的玩了好多遍，不断了进行参数的调整来降低游戏的难度，但是依旧未能突破300分。    
+    </p>
+
+	<h2>
+		<i class="heart red icon"></i> 心得
+	</h2>
+	<p>
+        这次最大的体验就是，做事情一定要切实的想好之后再去做，需求分析真的很重要，然后睡觉也真的很重要！    
+    </p>
+
+    <h2>
+		<i class="gamepad green icon"></i> 游戏试玩
+	</h2>
+    <hr class="smooth">
+    <p>
+        <a href="https://pan.baidu.com/share/init?surl=EtFIMqjbBWleeGHTYz8ixQ" class="ui big button download">电脑端下载链接</a>
+    </p>
+    <p>
+        网盘密码: sp4f
+    </p>
+    <h3 style="text-align: left">
+		操作：
+	</h3>
+	<ul>
+		<li>使用“a” 左移， “d” 右移动</li>
+		<li>使用“j” 冲刺</li>
+		<li>使用“k” 射击</li>
+		<li>使用“space” 跳跃</li>
+	</ul>
+
+<a href="/" class="ui blue button">返回</a>
+
+</div>
+
+<%- include('../partials/footer') %>

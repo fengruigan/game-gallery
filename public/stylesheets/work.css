@@ -112,11 +112,10 @@ i.icon {
 	-webkit-line-clamp: 7;
 	-webkit-box-orient: vertical;
 }
+
 #author {
 	margin-top: 0.5em
 }
-
-
 
 .ui.hide {
 	display: none;
@@ -142,6 +141,12 @@ i.icon {
 
 .active img {
 	border: solid #2c7bff 5px;
+}
+
+.ui.download {
+    background: linear-gradient(315deg, rgb(38, 255, 206) 0%, rgb(66, 154, 255) 100%);
+    color: white;
+    font-weight: lighter
 }
 
 .footer {

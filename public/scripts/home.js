@@ -18,13 +18,20 @@ function onLoad() {
         }
         card.addEventListener('click', (param) => {
             let detail = document.querySelector('#detail');
-            detail.style.display = "none";
+            // detail.style.display = "none";
             let target = param.currentTarget;
             let parent = target.parentElement;
             populateDetail(data);
             parent.after(detail);
-            detail.style.display = "block";
+            if (detail.dataset.displaying === target.id) {
+                detail.classList.toggle('hide');
+            } else {
+                detail.classList.remove('hide');
+            }
+            // detail.style.display = "block";
+            // detail.classList.add(fade);
             // $("#detail").fadeIn(400);
+            detail.dataset.displaying = target.id
         })
     })
 
@@ -39,9 +46,6 @@ function resizeImg() {
     thumbs.forEach( (thumb) => {
         thumb.style.height = String(thumb.width * 9 / 16) + "px"
     })
-    
-    // $('.thumbnail').height($('.thumbnail').width() * 9 / 16)
-    // $('.ui.placeholder').height($('.ui.placeholder').width() * 9 / 16)
 };
 
 function populateDetail(data) {
@@ -52,7 +56,6 @@ function populateDetail(data) {
     document.querySelector('#description').textContent = work.description
     document.querySelector('#link').attributes.href.value = "/works/" + work.id;
 
-    // $('#list').empty();
     while (list.firstChild) {
         list.removeChild(list.firstChild);
     }
@@ -79,11 +82,6 @@ function populateDetail(data) {
             changeShowcase();
         })
     })
-    // $('li').on('tap', (param) => {
-    //     $('li').removeClass("active");
-    //     param.currentTarget.classList.add("active");
-    //     changeShowcase();
-    // })
 }
 
 function changeShowcase() {
