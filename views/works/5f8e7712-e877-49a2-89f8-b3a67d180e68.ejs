@@ -5,11 +5,8 @@
         <i class="gamepad icon"></i> <%= work.title %>
     </h1>
     <h2>
-        作者：
+        作者：<%= work.authors %>
     </h2>
-    <p>
-        <%= work.authors %>
-    </p>
 </div>
 
 <div class="main ui container">
@@ -31,8 +28,9 @@
     <h2>
 		<i class="user circle icon"></i> 开发团队
 	</h2>
-	<hr class="smooth">
-	<div style="display:flex;justify-content: center;">
+    <hr class="smooth">
+    <div class="ui image">
+	<!-- <div style="display:flex;justify-content: center;"> -->
 		<img src="/<%= work.id %>/images/authors.png">
     </div>
     
