@@ -13,11 +13,10 @@
 </div>
 
 <div class="main ui container">
-    <h2>
+    <!-- <h2>
         <i class="child icon"></i> 全部作品
     </h2>
-    <hr class="abrupt">
-    <!-- <div class="ui raised link cards two column"> --> 
+    <hr class="abrupt"> 
         <% let count = 0 %>
         <% works.forEach( (work)=> { %>
             <% count += 1 %>
@@ -44,7 +43,7 @@
         <% }) %>
         <% if (count % 4 !== 0) {%>
             </div>
-        <% } %>
+        <% } %> -->
 
 
 
@@ -53,7 +52,6 @@
 		<i class="child icon"></i> 2020 CiGA Game Jam (8月14 ~ 16日)
 	</h2>
     <hr class="abrupt">
-    <!-- <div class="row"> -->
     
     <h3 style="margin-block-start: 1em; margin-block-end: 1em ;">
         2020 CiGA Game Jam Theme Image <br>
@@ -61,11 +59,17 @@
     </h3>
     <img class="ui centered large image" image src="images/CGJ_theme.png">
     <div class="ui hidden divider"></div>
+
+    <p">
+        这张名为 “<strong>罅隙</strong>” 的画是由<strong>邱丹丹</strong>所作。当时看到这张图片我第一时间想到的是 “<strong>锈湖</strong>” 系列。不知道你是不是这么觉得呢？
+    </p>
+
     <hr class="smooth">
 
     <h3 style="text-align: left">
-        下面是这次比赛的参赛作品
+        来看看这些参赛的队伍是怎么通过这张图片创作出作品的吧！
     </h3>
+
 
     <% count = 0 %>
     <% works.forEach( (work)=> { %>
