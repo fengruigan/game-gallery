@@ -17,15 +17,17 @@
         <i class="child icon"></i> 全部作品
     </h2>
     <hr class="abrupt">
-    <!-- <div class="ui raised link cards two column"> --> 
+    <!-- <div class="ui raised link cards two column"> -->
+        <!-- <% let left = true %> -->
         <% let count = 0 %>
         <% works.forEach( (work)=> { %>
             <% count += 1 %>
-            <% if (count % 4 === 1) {%>
-                <div class="ui raised link cards four column">
+            <!-- <% if (left) { %> -->
+            <% if (count % 3 === 1) %>
+                <div class="ui raised link cards three column">
             <% } %>
                 <% if (work.authors.length === 0) {work.authors = "作者没有留下名字"} %>
-                    <div class="ui card" id=<%= work.id %> data-title=<%= work.title %> data-authors=<%= work.authors %> data-imgCount=<%= work.imgCount %> data-description="<%= work.description %>" >
+                    <div class="ui card" id=<%= work.id %> data-title=<%= work.title %> data-authors=<%= work.authors %> data-description=<%= work.description %> data-imgCount=<%= work.imgCount %> >
                         <div class="image">
                             <img class="thumbnail" src="/<%= work.id %>/images/1.png">
                         </div>
@@ -38,11 +40,14 @@
                             </div>
                         </div>
                     </div>
-            <% if (count % 4 === 0) {%>
+            <!-- <% if(!left) { %>  -->
+            <% if (count % 3 === 0) %>
                 </div>
             <% } %>
+
         <% }) %>
-        <% if (count % 4 !== 0) {%>
+        <!-- <% if(!left) { %> -->
+        <% if (count % 3 !== 0) %>
             </div>
         <% } %>
 
@@ -67,15 +72,13 @@
         下面是这次比赛的参赛作品
     </h3>
 
-    <% count = 0 %>
+    <% left = true %>
     <% works.forEach( (work)=> { %>
         <% if (work.event === "2020-CiGA") { %>
-            <% count += 1 %>
-            <% if (count % 4 === 1) {%>
-                <div class="ui raised link cards four column">
+            <% if (left) { %>
+                <div class="ui raised link cards two column">
             <% } %>
-                <% if (work.authors.length === 0) {work.authors = "作者没有留下名字"} %>
-                    <div class="ui card" id=<%= work.id %> data-title=<%= work.title %> data-authors=<%= work.authors %> data-imgCount=<%= work.imgCount %> data-description="<%= work.description %>" >
+                    <div class="ui card" id=<%= work.id %> data-title=<%= work.title %> data-authors=<%= work.authors %> data-description=<%= work.description %> data-imgCount=<%= work.imgCount %> >
                         <div class="image">
                             <img class="thumbnail" src="/<%= work.id %>/images/1.png">
                         </div>
@@ -88,17 +91,48 @@
                             </div>
                         </div>
                     </div>
-            <% if (count % 4 === 0) {%>
+            <% if(!left) { %> 
                 </div>
             <% } %>
+            <% left = !left %>
         <% } %>
     <% }) %>
-    <% if (count % 4 !== 0) {%>
+    <% if(!left) { %>
         </div>
     <% } %>
 
+    <!-- <div class="ui raised link cards two column">
+            <div class="ui card">
+                <div class="image">
+                    <img src="images/CGJ_game_thumbnail.png" class="thumbnail">
+                </div>
+                <div class="content">
+                    <div class="header">
+                        Game Title
+                    </div>
+                    <div class="description">
+                        Description
+                    </div>
+                </div>
+            </div>
+            <div class="ui card">
+                <div class="ui placeholder">
+                    <div class="image" style="height:200px;"></div>
+                </div>
+                <div class="content">
+                    <div class="header">
+                        Game Title
+                    </div>
+                    <div class="description">
+                        Description
+                    </div>
+                </div>
+            </div>
+    </div>  -->
+
+
     <!-- This is a pre-structured card that displays the detail infos about the clicked work -->
-    <div class="ui celled grid hide" id="detail" data-displaying="">
+    <div class="ui celled grid" id="detail" style="display:none">
             <div class="row">
                 <!-- <div class="ui celled grid"> -->
                     <div class="six wide column">
