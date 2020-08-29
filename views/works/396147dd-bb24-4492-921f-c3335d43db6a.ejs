@@ -5,11 +5,8 @@
         <i class="gamepad icon"></i> <%= work.title %>
     </h1>
     <h2>
-        作者：
+        作者：<%= work.authors %>
     </h2>
-    <p>
-        <%= work.authors %>
-    </p>
 </div>
 
 <div class="main ui container">
@@ -19,9 +16,5 @@
 
     <a href="/" class="ui blue button">返回</a>
 </div>
-
-
-
-<a href="/" class="ui blue button">返回</a>
 
 <%- include('../partials/footer') %>

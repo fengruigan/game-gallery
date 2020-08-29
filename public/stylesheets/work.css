@@ -10,7 +10,6 @@ hr.smooth {
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-
 i.icon {
 	text-shadow: 2px 2px rgba(0,0,0,0.3);
 }
@@ -113,9 +112,6 @@ i.icon {
 	-webkit-box-orient: vertical;
 }
 
-#author {
-	margin-top: 0.5em
-}
 
 .ui.hide {
 	display: none;
