@@ -38,7 +38,7 @@ function resizeImg() {
     thumbs.forEach( (thumb) => {
         thumb.style.height = String(thumb.width * 9 / 16) + "px"
     })
-    let showcase = document.querySelector('#showcase');
+    let showcase = document.querySelector('.showcase img');
     showcase.style.height = String(showcase.width * 9 / 16) + "px"
 };
 
@@ -78,6 +78,7 @@ function populateDetail(data) {
 }
 
 function changeShowcase() {
+    resizeImg();
     let url = document.querySelector('.active img').attributes.src.value
-    document.querySelector('#showcase').attributes.src.value = url
+    document.querySelector('.showcase img').attributes.src.value = url
 }
