@@ -139,7 +139,7 @@ i.icon {
 	border: solid #2c7bff 5px;
 }
 
-.ui.download {
+.ui.button.function {
     background: linear-gradient(315deg, rgb(38, 255, 206) 0%, rgb(66, 154, 255) 100%);
     color: white;
     font-weight: lighter

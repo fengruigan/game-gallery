@@ -113,7 +113,7 @@ i.icon {
 	-webkit-box-orient: vertical;
 }
 #author {
-	margin-top: 0.5em
+	margin-top: 0.5em;
 }
 
 
@@ -132,6 +132,7 @@ i.icon {
 	/* list-style: none; */
 	display: inline;
 	padding-right: 10px;
+	overflow: hidden;
 }
 
 #list img{

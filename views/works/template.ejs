@@ -1,0 +1,102 @@
+<%- include('../partials/work-header') %>
+
+
+<div class="title">
+    <h1>
+        <i class="gamepad icon"></i> <%= work.title %>
+    </h1>
+    <h2>
+        作者：<%= work.authors %>
+    </h2>
+</div>
+
+<div class="main ui container">
+    
+    <% if (work.description !== undefined) {%>
+        <h2>
+            游戏简介
+        </h2>
+        <hr class="smooth">
+        <p>
+            <%= work.description %>
+        </p>
+    <% } %>
+
+    <% if (work.imgCount !== undefined || work.imgCount !== 0) {%>
+        <h2>
+            游戏画面
+        </h2>
+        <hr class="smooth">
+        <p>
+            <%= work.description %>
+        </p>
+    <% } %>
+
+
+    <% if (work.description !== undefined) {%>
+        <h2>
+            游戏试玩
+        </h2>
+        <hr class="smooth">
+        <p>
+            <%= work.description %>
+        </p>
+    <% } %>
+    <% if (work.description !== undefined) {%>
+        <h2>
+            开发团队
+        </h2>
+        <hr class="smooth">
+        <p>
+            <%= work.description %>
+        </p>
+    <% } %>
+    <% if (work.description !== undefined) {%>
+        <h2>
+            开发历程
+        </h2>
+        <hr class="smooth">
+        <p>
+            <%= work.description %>
+        </p>
+    <% } %>
+    <% if (work.description !== undefined) {%>
+        <h2>
+            游戏体验
+        </h2>
+        <hr class="smooth">
+        <p>
+            <%= work.description %>
+        </p>
+    <% } %>
+    <% if (work.description !== undefined) {%>
+        <h2>
+            游戏心得
+        </h2>
+        <hr class="smooth">
+        <p>
+            <%= work.description %>
+        </p>
+    <% } %>
+
+
+    <h2>
+        抱歉！暂时还没有内容，在等待作者们的消息！
+    </h2>
+
+    <a href="/" class="ui blue button">返回</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%- include('../partials/footer') %>
