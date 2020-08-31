@@ -1,31 +1,9 @@
 onLoad()
 
 function onLoad() {
+    console.log('script loaded')
     resizeImg();
-    let cards = document.querySelectorAll('.ui.card');
-    cards.forEach( (card) => {
-        let data = {
-            "id": card.id, 
-            "title": card.dataset.title,
-            "authors": card.dataset.authors,
-            "description": card.dataset.description,
-            "imgCount": card.dataset.imgcount,
-        }
-        card.addEventListener('click', (param) => {
-            let detail = document.querySelector('#detail');
-            // detail.style.display = "none";
-            let target = param.currentTarget;
-            let parent = target.parentElement;
-            populateDetail(data);
-            parent.after(detail);
-            if (detail.dataset.displaying === target.id) {
-                detail.classList.toggle('hide');
-            } else {
-                detail.classList.remove('hide');
-            }
-            detail.dataset.displaying = target.id
-        })
-    })
+    generateList();
 
     window.addEventListener('resize', () => {
         resizeImg();
@@ -33,27 +11,16 @@ function onLoad() {
 }
 
 function resizeImg() {
-
-    let thumbs = document.querySelectorAll('.thumbnail');
-    thumbs.forEach( (thumb) => {
-        thumb.style.height = String(thumb.width * 9 / 16) + "px"
-    })
-    let showcase = document.querySelector('.showcase img');
+    let showcase = document.querySelector('#showcase');
     showcase.style.height = String(showcase.width * 9 / 16) + "px"
 };
 
-function populateDetail(data) {
-    let work = data
-    document.querySelector('#title').textContent = work.title
-    document.querySelector('#author').textContent = work.authors;
-    document.querySelector('#description').textContent = work.description
-    document.querySelector('#link').attributes.href.value = "/works/" + work.id;
+function generateList() {
+    let id = document.querySelector('#list').dataset.id
+    let imgCount = document.querySelector('#list').dataset.imgcount
 
-    while (list.firstChild) {
-        list.removeChild(list.firstChild);
-    }
-    for (let i = 1; i <= Math.min(work.imgCount, 4); i++) {
-        let imgUrl = "/" + work.id + "/images/" + String(i) + ".png";
+    for (let i = 1; i <= imgCount; i++) {
+        let imgUrl = "/" + id + "/images/" + String(i) + ".png";
         let li = document.createElement('li');
         let img = document.createElement('img')
         img.src= imgUrl;
@@ -78,6 +45,7 @@ function populateDetail(data) {
 }
 
 function changeShowcase() {
+    resizeImg();
     let url = document.querySelector('.active img').attributes.src.value
-    document.querySelector('.showcase img').attributes.src.value = url
+    document.querySelector('#showcase').attributes.src.value = url
 }

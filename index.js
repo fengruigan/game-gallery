@@ -34,8 +34,9 @@ app.get('/', (req,res) => {
 app.get('/works/:id', (req,res) => {
     let work = dbManager.read(req.params.id);
     if (work) {
-        res.render("works/" + req.params.id, {work: work});
+        // res.render("works/" + req.params.id, {work: work});
         // res.send("Going to render ID " + req.params.id);
+        res.render('works/template', {work: work})
     }
 })
 

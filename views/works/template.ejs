@@ -24,16 +24,41 @@
 
     <% if (work.imgCount !== undefined || work.imgCount !== 0) {%>
         <h2>
-            游戏画面
-        </h2>
-        <hr class="smooth">
-        <p>
-            <%= work.description %>
-        </p>
+			<i class="thumbtack violet icon"></i> 游戏画面
+		</h2>
+		<hr class="smooth">
+		<div class="ui divider hidden"></div>
+		<div class="ui grid">
+			<div class="row">
+
+				<div class="two wide column"></div>
+				<div class="twelve wide column">
+					<!-- <div class="ui placeholder"> -->
+						<div class="ui fluid image">
+							<img src="/<%= work.id %>/images/1.png" id="showcase">
+						</div>
+					<!-- </div> -->
+				</div>
+				<div class="two wide column"></div>
+
+			</div>
+
+			<div class="row">
+
+				<div class="two wide column"></div>
+				<div class="twelve wide column">
+					<!-- <div class="ui placeholder"> -->
+						<ul id="list" data-id=<%= work.id %> data-imgCount= <%= work.imgCount %>>
+						</ul>
+					<!-- </div> -->
+				</div>
+				<div class="two wide column"></div>
+
+			</div>
+		</div>
     <% } %>
 
-
-    <% if (work.description !== undefined) {%>
+    <% if (work.download !== undefined) {%>
         <h2>
             游戏试玩
         </h2>
@@ -42,61 +67,51 @@
             <%= work.description %>
         </p>
     <% } %>
-    <% if (work.description !== undefined) {%>
+    <% if (work.sections !== undefined && work.sections.length !== 0) { %>
+        <% if (work.team !== undefined) {%>
+            <h2>
+                开发团队
+            </h2>
+            <hr class="smooth">
+            <p>
+                <%= work.description %>
+            </p>
+        <% } %>
+        <% if (work.description !== undefined) {%>
+            <h2>
+                开发历程
+            </h2>
+            <hr class="smooth">
+            <p>
+                <%= work.description %>
+            </p>
+        <% } %>
+        <% if (work.description !== undefined) {%>
+            <h2>
+                游戏体验
+            </h2>
+            <hr class="smooth">
+            <p>
+                <%= work.description %>
+            </p>
+        <% } %>
+        <% if (work.description !== undefined) {%>
+            <h2>
+                游戏心得
+            </h2>
+            <hr class="smooth">
+            <p>
+                <%= work.description %>
+            </p>
+        <% } %>
+    <% } else { %>
         <h2>
-            开发团队
+            抱歉！暂时还没有故事，在等待作者们的消息！
         </h2>
-        <hr class="smooth">
-        <p>
-            <%= work.description %>
-        </p>
     <% } %>
-    <% if (work.description !== undefined) {%>
-        <h2>
-            开发历程
-        </h2>
-        <hr class="smooth">
-        <p>
-            <%= work.description %>
-        </p>
-    <% } %>
-    <% if (work.description !== undefined) {%>
-        <h2>
-            游戏体验
-        </h2>
-        <hr class="smooth">
-        <p>
-            <%= work.description %>
-        </p>
-    <% } %>
-    <% if (work.description !== undefined) {%>
-        <h2>
-            游戏心得
-        </h2>
-        <hr class="smooth">
-        <p>
-            <%= work.description %>
-        </p>
-    <% } %>
-
-
-    <h2>
-        抱歉！暂时还没有内容，在等待作者们的消息！
-    </h2>
 
     <a href="/" class="ui blue button">返回</a>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
+<script src="/scripts/work.js"></script>
 <%- include('../partials/footer') %>

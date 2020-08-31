@@ -12,7 +12,7 @@ class dbManager{
         let id = uuid();
         work.id = id;
         db[id] = work;
-        // ================ push allWorks array ================
+        // ================ push to allWorks array ================
         db.works.push(id);
         // ================ push category array ================
         work.category.forEach( (c) => {

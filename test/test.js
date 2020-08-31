@@ -35,6 +35,5 @@ let id = uuid()
 // console.log(files.length)
 
 let work = dbManager.readAll()[0];
-work.data = JSON.stringify(dbManager.read(work.id));
+console.log(work.sections !== undefined && work.sections.length !== 0)
 // let data = JSON.stringify(work)
-console.log(work.data)
