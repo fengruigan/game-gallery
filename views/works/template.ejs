@@ -63,9 +63,7 @@
             游戏试玩
         </h2>
         <hr class="smooth">
-        <p>
-            <%= work.description %>
-        </p>
+        <a href="<%= work.download %>" class="ui big button function">下载链接</a>
     <% } %>
     <% if (work.sections !== undefined && work.sections.length !== 0) { %>
         <% if (work.team !== undefined) {%>
@@ -77,33 +75,14 @@
                 <%= work.description %>
             </p>
         <% } %>
-        <% if (work.description !== undefined) {%>
+        <% work.sections.forEach( (section) => {
             <h2>
-                开发历程
+                <i class="book blue icon"></i> <%= section.title %>
             </h2>
-            <hr class="smooth">
             <p>
-                <%= work.description %>
+                <%= section.content %>
             </p>
-        <% } %>
-        <% if (work.description !== undefined) {%>
-            <h2>
-                游戏体验
-            </h2>
-            <hr class="smooth">
-            <p>
-                <%= work.description %>
-            </p>
-        <% } %>
-        <% if (work.description !== undefined) {%>
-            <h2>
-                游戏心得
-            </h2>
-            <hr class="smooth">
-            <p>
-                <%= work.description %>
-            </p>
-        <% } %>
+        })
     <% } else { %>
         <h2>
             抱歉！暂时还没有故事，在等待作者们的消息！

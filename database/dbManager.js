@@ -19,7 +19,7 @@ class dbManager{
             if (db.categories[c] === undefined) {
                 // create category if does not exist
                 db.categories[c] = [];
-                db.list.push(c)
+                db.categories.list.push(c)
             }
             db.categories[c].push(id);
         });
@@ -99,6 +99,12 @@ class dbManager{
                 });
                 if (arr.length === 0) {
                     delete db.categories[c];
+                    // delete c from list of categories
+                    db.categories.list.forEach( (cat, index) => {
+                        if (cat === c) {
+                            db.categories.list.splice(index, 1);
+                        }
+                    })
                 }
             });
             // ================ delete ogID from event array ================
@@ -128,13 +134,14 @@ class dbManager{
             }
             // ================ update newWork into db ================
             db[id] = newWork;
-            // ================ make sure id does not change ================
+            // make sure id does not change 
             db[id].id = id;
             // push category array
             newWork.category.forEach( (c) => {
                 if (db.categories[c] === undefined) {
                     // create category if does not exist
                     db.categories[c] = [];
+                    db.categories.list.push(c);
                 }
                 db.categories[c].push(id);
             });
