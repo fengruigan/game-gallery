@@ -63,11 +63,47 @@
 			<i class="thumbtack violet icon"></i> 游戏画面
 		</h2>
 		<hr class="smooth">
-		<div class="ui placeholder">
-			<div class="image"></div>
+		<div class="ui divider hidden"></div>
+		<div class="ui grid">
+			<div class="two wide column"></div>
+			<div class="twelve wide column">
+				<!-- <div class="ui placeholder"> -->
+					<div class="ui fluid image">
+						<img src="/<%= work.id %>/images/1.png" id="showcase">
+					</div>
+				<!-- </div> -->
+			</div>
+			<div class="two wide column"></div>
 		</div>
+		<div id="list"> </div>
+
 		
-	
+		
+		<div class="ui divider hidden"></div>
+		<h2>
+			<i class="gamepad green icon"></i> 游戏试玩
+		</h2>
+		<hr class="smooth">
+		<p>
+			微信可以扫小程序码直接游玩
+		</p>
+		<div class="ui small image">
+		<!-- <div style="display:flex;justify-content:center;"> -->
+			<img src="/<%= work.id %>/images/qrcode.jpg">
+		</div>
+		<div class="ui divider hidden"></div>
+		<p>
+			保护莉莉丝到空投防护服并逃出去，或者利用箱子填满20条裂缝。箱子可以阻挡蚂蚁。
+		</p>
+		<h3 style="text-align: left">
+			操作（电脑）：
+		</h3>
+		<ul>
+			<li>使用方向键移动</li>
+			<li>使用“Z”键拾取和放置物品</li>
+		</ul>
+		
+		<a href="#" class="ui button function">去玩玩看</a>
 
 
 <!-- <div class="main ui container"> -->
@@ -109,30 +145,7 @@
 	</p>
 
 
-	<h2>
-		<i class="gamepad green icon"></i> 游戏试玩
-	</h2>
-	<hr class="smooth">
-	<p>
-		微信可以扫小程序码直接游玩
-	</p>
-	<div class="ui small image">
-	<!-- <div style="display:flex;justify-content:center;"> -->
-		<img src="/<%= work.id %>/images/qrcode.jpg">
-	</div>
-	<div class="ui divider hidden"></div>
-	<p>
-		保护莉莉丝到空投防护服并逃出去，或者利用箱子填满20条裂缝。箱子可以阻挡蚂蚁。
-	</p>
-	<h3 style="text-align: left">
-		操作（电脑）：
-	</h3>
-	<ul>
-		<li>使用方向键移动</li>
-		<li>使用“Z”键拾取和放置物品</li>
-	</ul>
-	
-	<p>该功能在测试中</p>
+
 	
 	<!-- <div id="GameDiv" style="width:1280px; height: 720px;"> -->
 	<!-- <div id="GameDiv" style="margin-top: 5em; margin-bottom: 10em">
@@ -184,20 +197,6 @@
 })();
 </script>
 
-<script>
-	$(document).ready( () => {
-    resizeImg();
-	})
-
-	$(window).resize( () => {
-		resizeImg();
-	})
-
-	function resizeImg() {
-		// $('.thumbnail').height($('.thumbnail').width() * 9 / 16)
-		$('.ui.placeholder').height($('.ui.placeholder').width() * 9 / 16)
-	};
-</script>
 
 </body>
 </html>
