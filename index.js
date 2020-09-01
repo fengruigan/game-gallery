@@ -1,9 +1,9 @@
-const { json } = require('express');
-
 var express = require('express'),
     app = express(),
     mongoose = require('mongoose'),
-    dbManager = require('./database/dbManager');
+    dbManager = require('./database/dbManager'),
+    bodyParser = require('body-parser'),
+    multer = require('multer');
 
 // =========
 // DB setup
@@ -21,6 +21,7 @@ var express = require('express'),
 
 
 
+
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public", {dotfiles: 'allow'}));
 
@@ -30,13 +31,21 @@ app.get('/', (req,res) => {
 
 });
 
+app.post('/works/', (req,res) => {
+    res.send("creating work")
+})
+
+app.get('/works/create', (req,res) => {
+    res.send("create your work here");
+})
+
 
 app.get('/works/:id', (req,res) => {
     let work = dbManager.read(req.params.id);
     if (work) {
         // res.render("works/" + req.params.id, {work: work});
         // res.send("Going to render ID " + req.params.id);
-        res.render('works/template', {work: work})
+        res.render('works/show', {work: work})
     }
 })
 

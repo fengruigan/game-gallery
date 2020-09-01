@@ -19,18 +19,12 @@
 			"塔防"
 		],
 		"无分类": [
-			"a46078ac-fd28-4414-bc4f-e90ff7a99531",
-			"5f8e7712-e877-49a2-89f8-b3a67d180e68"
-		],
-		"角色扮演": [
-			"396147dd-bb24-4492-921f-c3335d43db6a"
-		],
-		"模拟": [
-			"60baeeb8-061b-4b9c-954b-13d918b5534d"
+			"5f8e7712-e877-49a2-89f8-b3a67d180e68",
+			"a46078ac-fd28-4414-bc4f-e90ff7a99531"
 		],
 		"生存": [
-			"f9bf5d48-daf9-4cb4-a7cb-58abff027ed6",
-			"e7f86cf1-e768-4659-be49-57711fa559a4"
+			"e7f86cf1-e768-4659-be49-57711fa559a4",
+			"f9bf5d48-daf9-4cb4-a7cb-58abff027ed6"
 		],
 		"解谜": [
 			"038a1ce2-8c42-4dc1-8cce-9cf783cf682a",
@@ -38,17 +32,23 @@
 		],
 		"塔防": [
 			"e7f86cf1-e768-4659-be49-57711fa559a4"
+		],
+		"模拟": [
+			"60baeeb8-061b-4b9c-954b-13d918b5534d"
+		],
+		"角色扮演": [
+			"396147dd-bb24-4492-921f-c3335d43db6a"
 		]
 	},
 	"event": {
 		"2020-CiGA": [
-			"a46078ac-fd28-4414-bc4f-e90ff7a99531",
-			"396147dd-bb24-4492-921f-c3335d43db6a",
-			"60baeeb8-061b-4b9c-954b-13d918b5534d",
-			"f9bf5d48-daf9-4cb4-a7cb-58abff027ed6",
-			"038a1ce2-8c42-4dc1-8cce-9cf783cf682a",
 			"e7f86cf1-e768-4659-be49-57711fa559a4",
 			"5f8e7712-e877-49a2-89f8-b3a67d180e68",
+			"038a1ce2-8c42-4dc1-8cce-9cf783cf682a",
+			"60baeeb8-061b-4b9c-954b-13d918b5534d",
+			"f9bf5d48-daf9-4cb4-a7cb-58abff027ed6",
+			"a46078ac-fd28-4414-bc4f-e90ff7a99531",
+			"396147dd-bb24-4492-921f-c3335d43db6a",
 			"bff3e771-6083-4b4a-9413-34e79c539558"
 		]
 	},
@@ -69,7 +69,9 @@
 			"塔防",
 			"生存"
 		],
-		"event": "2020-CiGA"
+		"event": "2020-CiGA",
+		"download": "#",
+		"sections": []
 	},
 	"038a1ce2-8c42-4dc1-8cce-9cf783cf682a": {
 		"id": "038a1ce2-8c42-4dc1-8cce-9cf783cf682a",
@@ -85,7 +87,9 @@
 		"category": [
 			"解谜"
 		],
-		"event": "2020-CiGA"
+		"event": "2020-CiGA",
+		"download": "#",
+		"sections": []
 	},
 	"60baeeb8-061b-4b9c-954b-13d918b5534d": {
 		"id": "60baeeb8-061b-4b9c-954b-13d918b5534d",
@@ -100,16 +104,18 @@
 		"category": [
 			"模拟"
 		],
-		"event": "2020-CiGA"
+		"event": "2020-CiGA",
+		"download": "#",
+		"sections": []
 	},
 	"f9bf5d48-daf9-4cb4-a7cb-58abff027ed6": {
 		"id": "f9bf5d48-daf9-4cb4-a7cb-58abff027ed6",
 		"title": "诞生日",
 		"authors": [
-            "Nightvision65",
+			"Nightvision65",
 			"昏暗",
 			"o2o",
-            "1kunpeng",
+			"1kunpeng",
 			"Papaya"
 		],
 		"description": "今天是姜饼人的生日，姜饼人得到了一块大蛋糕，姜饼人想要蛋糕上有更多好吃的，你能帮助姜饼人么。游戏是一款“射击塔防游戏”，玩家需要从糖豆商人手中订购各种食材来守卫自己的蛋糕，可是额外的快递盒子会对玩家照成阻碍，你订购的物品越多，能使用的土地也就越少。",
@@ -117,7 +123,9 @@
 		"category": [
 			"生存"
 		],
-		"event": "2020-CiGA"
+		"event": "2020-CiGA",
+		"download": "#",
+		"sections": []
 	},
 	"a46078ac-fd28-4414-bc4f-e90ff7a99531": {
 		"id": "a46078ac-fd28-4414-bc4f-e90ff7a99531",
@@ -134,7 +142,9 @@
 		"category": [
 			"无分类"
 		],
-		"event": "2020-CiGA"
+		"event": "2020-CiGA",
+		"download": "#",
+		"sections": []
 	},
 	"396147dd-bb24-4492-921f-c3335d43db6a": {
 		"id": "396147dd-bb24-4492-921f-c3335d43db6a",
@@ -150,7 +160,9 @@
 		"category": [
 			"角色扮演"
 		],
-		"event": "2020-CiGA"
+		"event": "2020-CiGA",
+		"download": "#",
+		"sections": []
 	},
 	"5f8e7712-e877-49a2-89f8-b3a67d180e68": {
 		"id": "5f8e7712-e877-49a2-89f8-b3a67d180e68",
@@ -163,7 +175,9 @@
 		"category": [
 			"无分类"
 		],
-		"event": "2020-CiGA"
+		"event": "2020-CiGA",
+		"download": "#",
+		"sections": []
 	},
 	"bff3e771-6083-4b4a-9413-34e79c539558": {
 		"id": "bff3e771-6083-4b4a-9413-34e79c539558",
@@ -179,6 +193,8 @@
 		"category": [
 			"解谜"
 		],
-		"event": "2020-CiGA"
+		"event": "2020-CiGA",
+		"download": "#",
+		"sections": []
 	}
 }

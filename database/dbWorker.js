@@ -20,4 +20,4 @@ var newWork = new work(
 
 // dbManager.create(newWork);
 // dbManager.destory("134a6835-2642-412f-a1d1-22f59b31dbd0");
-dbManager.update("bff3e771-6083-4b4a-9413-34e79c539558", newWork)
+// dbManager.update("bff3e771-6083-4b4a-9413-34e79c539558", newWork)
