@@ -1,0 +1,96 @@
+<%- include('../partials/work-header') %>
+
+
+<div class="title">
+    <h1>
+        <i class="gamepad icon"></i> <%= work.title %>
+    </h1>
+    <h2>
+        作者：<%= work.authors %>
+    </h2>
+</div>
+
+<div class="main ui container">
+    
+    <% if (work.description !== undefined) {%>
+        <h2>
+            游戏简介
+        </h2>
+        <hr class="smooth">
+        <p>
+            <%= work.description %>
+        </p>
+    <% } %>
+
+    <% if (work.imgCount !== undefined || work.imgCount !== 0) {%>
+        <h2>
+			<i class="thumbtack violet icon"></i> 游戏画面
+		</h2>
+		<hr class="smooth">
+		<div class="ui divider hidden"></div>
+		<div class="ui grid">
+			<div class="row">
+
+				<div class="two wide column"></div>
+				<div class="twelve wide column">
+					<!-- <div class="ui placeholder"> -->
+						<div class="ui fluid image">
+							<img src="/<%= work.id %>/images/1.png" id="showcase">
+						</div>
+					<!-- </div> -->
+				</div>
+				<div class="two wide column"></div>
+
+			</div>
+
+			<div class="row">
+
+				<div class="two wide column"></div>
+				<div class="twelve wide column">
+					<!-- <div class="ui placeholder"> -->
+						<ul id="list" data-id=<%= work.id %> data-imgCount= <%= work.imgCount %>>
+						</ul>
+					<!-- </div> -->
+				</div>
+				<div class="two wide column"></div>
+
+			</div>
+		</div>
+    <% } %>
+
+    <% if (work.download !== undefined) {%>
+        <h2>
+            游戏试玩
+        </h2>
+        <hr class="smooth">
+        <a href="<%= work.download %>" class="ui big button function">下载链接</a>
+    <% } %>
+    <% if (work.sections !== undefined && work.sections.length !== 0) { %>
+        <% if (work.team !== undefined) {%>
+            <h2>
+                开发团队
+            </h2>
+            <hr class="smooth">
+            <p>
+                <%= work.description %>
+            </p>
+        <% } %>
+        <% work.sections.forEach( (section) => {
+            <h2>
+                <i class="book blue icon"></i> <%= section.title %>
+            </h2>
+            <p>
+                <%= section.content %>
+            </p>
+        })
+    <% } else { %>
+        <h2>
+            抱歉！暂时还没有故事，在等待作者们的消息！
+        </h2>
+    <% } %>
+
+    <a href="/" class="ui blue button">返回</a>
+</div>
+
+<script src="/scripts/work.js"></script>
+<%- include('../partials/footer') %>

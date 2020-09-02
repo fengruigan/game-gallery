@@ -1,0 +1,94 @@
+<%- include('../partials/header') %>
+
+<div class="title">
+    <h1>
+        <i class="gamepad icon"></i> 展示你的游戏
+    </h1>
+    <h2>
+        用你喜欢的方式介绍一下你的游戏吧~
+    </h2>
+</div>
+
+<div class="main ui container">
+
+    <h2>
+        <i class="tasks blue icon"></i> 先收集一下基本信息
+    </h2>
+    <hr class="abrupt">
+
+    <form action="/works" enctype="multipart/form-data" method="POST" class="ui form">
+        <div class="field">
+            <label for="title">游戏标题</label>
+            <input type="text" name="title" required placeholder="写下响亮的名字吧~">
+        </div>
+        <div class="ui divider"></div>
+        <div class="author">
+            <div class="three fields">
+                <div class="field">
+                    <label for="author">作者</label>
+                    <input type="text" name="author[name]" placeholder="名字或昵称">
+                </div>
+                <div class="field">
+                    <label for="author">职位</label>
+                    <input type="text" name="author[position]" placeholder="程序/策划/美术/音乐/全能">
+                </div>
+                <div class="field">
+                    <button type="button" class="ui red small button del-author hide" style="margin-top: 2em"><i class="minus icon"></i> 删除此作者</button>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="ui blue button small add-author"><i class="plus icon"></i> 添加作者</button>
+
+        <div class="ui divider"></div>
+        <div class="field">
+            <label for="description">简介</label>
+            <textarea name="description" rows="3" placeholder="稍微一下这个游戏吧~"></textarea>
+            
+        </div>
+        <div class="three fields">
+            <div class="field">
+                <label for="image">展示一下游戏画面吧~（可上传最多10张游戏画面）</label>
+                <input type="file" name="image" multiple>
+            </div>
+        </div>  
+
+        <h2>
+            <i class="pencil alternate brown icon"></i> 游戏背后的故事
+        </h2>
+        <hr class="abrupt">
+
+        <div class="sections">
+
+        </div>
+
+        <div class="ui divider"></div>
+        <button type="button" class="ui blue button small add-section"><i class="plus icon"></i> 添加版块</button>
+
+        <div class="ui hidden divider"></div>
+        <hr class="abrupt">
+        <input class="ui button green" type="submit" value="上传游戏">
+    </form>
+
+</div>
+
+
+<div class="section" style="display: none">
+    <div class="ui divider hidden"></div>
+    <div class="field">
+        <label for="section[title]">新版块</label>
+        <input type="text" class="section-title" name="section[title]" placeholder="取一个标题吧~">
+    </div>
+    <div class="field">
+        <textarea class="section-content" name="section[content]" placeholder="写下内容吧~"></textarea>
+    </div>
+    <div class="section-preview" style="margin-bottom: 2em">
+    </div>
+
+    <button type="button" class="ui blue small button preview"><i class="search icon"></i> 预览版块</button>
+    <button type="button" class="ui red small button del-section"><i class="minus icon"></i> 删除此版块</button>
+</div>
+
+
+<script src="/scripts/create.js"></script>
+
+<%- include('../partials/footer') %>
