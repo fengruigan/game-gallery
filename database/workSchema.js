@@ -4,8 +4,8 @@ class work {
     authors = '';
     description = '';
     imgCount = 0;
-    category;
-    event;
+    category = ["无分类"];
+    event = "无";
     download = '#';
     sections = [];
     constructor(title="无标题", authors=[], description="作者很懒，没有写简介", imgCount = 0, category=["无分类"], event="无", download="#", sections=this.sections) {

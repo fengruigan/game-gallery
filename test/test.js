@@ -8,5 +8,5 @@ let uuid = require("uuid").v4,
     bodyParser = require('body-parser')
 
 
-
-
+let read = fs.readdirSync('./public/uploads')
+console.log(read)

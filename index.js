@@ -3,7 +3,8 @@ var express = require('express'),
     mongoose = require('mongoose'),
     dbManager = require('./database/dbManager'),
     bodyParser = require('body-parser'),
-    multer = require('multer');
+    multer = require('multer'),
+    fs = require('fs');
 
 // =========
 // DB setup
@@ -19,24 +20,81 @@ var express = require('express'),
 // 	console.log("ERROR:", err.message);
 // });
 
+var storage = multer.diskStorage({
+    destination: function(req, file, callback) {
+        callback(null, "./public/uploads");
+    },
+    filename: function(req, file, callback) {
+        let count = fs.readdirSync('./public/uploads').length;
+        callback(null, String(count + 1) + ".png");
+    }
+})
 
+var upload = multer({ storage: storage })
 
 
 app.set("view engine", "ejs");
-app.use(express.static(__dirname + "/public", {dotfiles: 'allow'}));
+app.use(express.static(__dirname + "/public"));
 
 app.get('/', (req,res) => {
     let works = dbManager.readAll();
     res.render('home', {works: works});
-
 });
 
-app.post('/works/', (req,res) => {
-    res.send("creating work")
+app.post('/works', upload.array('image'), (req,res, next) => {
+    // res.send("creating work");
+    // console.log(req.files);
+    // console.log(req.body);
+
+    let title = req.body.title;
+    let authors = req.body.author
+    let description = req.body.description
+    // let section = {
+    //     "title": req.body.section[title],
+    //     "content": req.body.section[content]
+    // }
+    let sections = req.body.section
+
+    let auth = []
+    if(typeof(authors.name) === "object") {
+        authors.name.forEach( (name, index) => {
+            auth.push({
+                "name": name,
+                "position": authors.position[index]
+            });
+        });
+    } else {
+        auth.push({
+            "name": authors.name,
+            "position": authors.position
+        })
+    }
+
+    let sec = []
+    if(typeof(sections.title) === "object") {
+        sections.title.forEach( (title, index) => {
+            sec.push({
+                "title": title,
+                "content": sections.content[index]
+            });
+        });
+    } else {
+        sec.push({
+            "title": sections.title,
+            "content": sections.content
+        })
+    }
+
+
+    console.log(title);
+    console.log(auth);
+    console.log(description);
+    console.log(sec);
+    res.redirect('/');
 })
 
 app.get('/works/create', (req,res) => {
-    res.send("create your work here");
+    res.render('works/create');
 })
 
 
