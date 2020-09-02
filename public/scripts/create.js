@@ -72,11 +72,13 @@ function sectionPreviewListener(prev, section) {
         if (title === "") {
             title = "版块标题"
         }
+        title = sanitize(title);
         title = '<h2><i class="beer orange icon"></i> ' + title + '</h2><hr class="smooth">'
         let content = section.getElementsByClassName('section-content')[0].value;
         if (content === "") {
             content = "版块内容"
         }
+        content = sanitize(content);
         content = '<p>' + content.replace(/\n/g, "</p>\n<p>") + '</p>';
         let el = document.createElement('div');
         el.innerHTML = title + content;
@@ -90,4 +92,10 @@ function sectionPreviewListener(prev, section) {
             preview.appendChild(el.firstElementChild);
         }
     })
+}
+
+function sanitize(text){
+    var sanitized = text.replace("<script>", "");
+    sanitized = sanitized.replace("</script>", "");
+    return sanitized;
 }
