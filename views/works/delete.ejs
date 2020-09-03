@@ -22,30 +22,41 @@
         <div class="field">
             <input type="text" name="password" placeholder="管理密码">
         </div>
-        <button type="button" class="ui red button delete">删除</button>
+        <input type="submit" class="ui red button delete" value="删除">
+        <a href="/works/<%= work.id %>" class="ui blue button">返回</a>
 
         <div class="response">
-            <div class="error">
-                <h3>
-                    <i class="close red icon"></i> 密码错误
-                </h3>
-            </div>
-
-            <div class="confirm hide">
-                <h3>
-                    请问您确定要删除这个作品吗？
-                </h3>
-                <div  style="display: flex; justify-content: center;">  
-                    <input type="submit" class="ui red button" value="确定删除">
-                    <a href="/works/<%= work.id %>/" class="ui blue button ">返回</a>
+            <div class="ui error message">
+                <div class="header">
+                    密码错误
                 </div>
+                <p>请重试</p>
             </div>
 
         </div>
 
     </form>
 
+
+    <div class="error hide">
+        <h3>
+            <i class="close red icon"></i> 密码错误
+        </h3>
+    </div>
+
+    <div class="confirm hide">
+        <h3>
+            请问您确定要删除这个作品吗？
+        </h3>
+        <div  style="display: flex; justify-content: center;">  
+            <input type="submit" class="ui red button" value="确定删除">
+            <a href="/works/<%= work.id %>/" class="ui blue button ">返回</a>
+        </div>
+    </div>
+
 </div>
+
+
 
 
 <script src="/scripts/delete.js"></script>

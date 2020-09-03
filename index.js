@@ -6,6 +6,7 @@ var express = require('express'),
     db = require('./database/workDB.json'),
     bodyParser = require('body-parser'),
     multer = require('multer'),
+    // flash = require('connect-flash'),
     methodOverride = require('method-override'),
     fs = require('fs');
 
@@ -38,130 +39,147 @@ var upload = multer({ storage: storage })
 
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
+app.use(methodOverride("_method"));
+app.use(bodyParser.urlencoded({extended: true}));
+
+// app.use(flash());
+
+// app.use((req,res,next) => {
+//     res.locals.error = req.flash('error');
+//     res.locals.success = req.flash('success');
+// })
 
 app.get('/', (req,res) => {
     let works = dbManager.readAll();
     res.render('home', {works: works});
 });
 
+app.get('/success', (req,res) => {
+    res.render('success');
+});
+
+app.get('/error', (req,res) => {
+    res.render('error');
+})
+
 app.post('/works', upload.array('image', 10), (req,res,next) => {
-    // res.send("creating work");
-    // console.log(req.files);
-    // console.log(req.body);
+    res.send("此功能在建设中")
 
-    let title = req.body.title;
-    let authors = req.body.author
-    let description = req.body.description
-    let category = req.body.category
-    let event = req.body.event;
-    let imgCount = req.files.length;
-    let download = req.body.download
-    let sections = req.body.section
-    let password = req.body.password
+    // let title = req.body.title;
+    // let authors = req.body.author
+    // let description = req.body.description
+    // let category = req.body.category
+    // let event = req.body.event;
+    // let imgCount = req.files.length;
+    // let download = req.body.download
+    // let sections = req.body.section
+    // let password = req.body.password
 
-    let auth = []
-    if(typeof(authors.name) === "object") {
-        authors.name.forEach( (name, index) => {
-            if (name === "") {
-                name = '无名'
-            }
-            if (authors.position[index] === "") {
-                position = '全能'
-            } else {
-                position = authors.position[index]
-            }
-            auth.push({
-                "name": name,
-                "position": position
-            });
-        });
-    } else {
-        let name = authors.name
-        if (name === "") {
-            name = '无名'
-        }
-        if (authors.position === "") {
-            position = '全能'
-        } else {
-            position = authors.position
-        }
-        auth.push({
-            "name": name,
-            "position": position
-        })
-    }
+    // let auth = []
+    // if(typeof(authors.name) === "object") {
+    //     authors.name.forEach( (name, index) => {
+    //         if (name === "") {
+    //             name = '无名'
+    //         }
+    //         if (authors.position[index] === "") {
+    //             position = '全能'
+    //         } else {
+    //             position = authors.position[index]
+    //         }
+    //         auth.push({
+    //             "name": name,
+    //             "position": position
+    //         });
+    //     });
+    // } else {
+    //     let name = authors.name
+    //     if (name === "") {
+    //         name = '无名'
+    //     }
+    //     if (authors.position === "") {
+    //         position = '全能'
+    //     } else {
+    //         position = authors.position
+    //     }
+    //     auth.push({
+    //         "name": name,
+    //         "position": position
+    //     })
+    // }
 
-    if (category[1] !== "") {
-        category.splice(0,1)
-    } else {
-        category.splice(1,1)
-    }
-    if (event[1] !== "") {
-        event = event[1]
-    } else {
-        event = event[0]
-    }
+    // if (category[1] !== "") {
+    //     category.splice(0,1)
+    // } else {
+    //     category.splice(1,1)
+    // }
+    // if (event[1] !== "") {
+    //     event = event[1]
+    // } else {
+    //     event = event[0]
+    // }
 
-    if (download.link === "") {
-        download.link = "#";
-    }
+    // if (download.link === "") {
+    //     download.link = "#";
+    // }
 
-    let sec = []
-    if (sections !== undefined) {
-        if(typeof(sections.title) === "object") {
-            sections.title.forEach( (title, index) => {
-                let content = section.content[index]
-                content = sanitize(content);
-                if (title === "") {
-                    title = "版块标题"
-                }
-                if (content === "") {
-                    content = "版块内容"
-                }
-                sec.push({
-                    "title": title,
-                    "content": content
-                });
-            });
-        } else {
-            if (sections.title === "") {
-                sections.title = "版块标题"
-            }
-            let content = sections.content
-            if (content === "") {
-                content = "版块内容"
-            }
-            content = sanitize(content);
-            sec.push({
-                "title": sections.title,
-                "content": content
-            })
-        }
-    }
+    // let sec = []
+    // if (sections !== undefined) {
+    //     if(typeof(sections.title) === "object") {
+    //         sections.title.forEach( (title, index) => {
+    //             let content = section.content[index]
+    //             content = sanitize(content);
+    //             if (title === "") {
+    //                 title = "版块标题"
+    //             }
+    //             if (content === "") {
+    //                 content = "版块内容"
+    //             }
+    //             sec.push({
+    //                 "title": title,
+    //                 "content": content
+    //             });
+    //         });
+    //     } else {
+    //         if (sections.title === "") {
+    //             sections.title = "版块标题"
+    //         }
+    //         let content = sections.content
+    //         if (content === "") {
+    //             content = "版块内容"
+    //         }
+    //         content = sanitize(content);
+    //         sec.push({
+    //             "title": sections.title,
+    //             "content": content
+    //         })
+    //     }
+    // }
 
-    let newWork = new Work(
-        title,
-        auth,
-        description,
-        imgCount,
-        category,
-        event,
-        download,
-        sec,
-        password
-    )
+    // let newWork = new Work(
+    //     title,
+    //     auth,
+    //     description,
+    //     imgCount,
+    //     category,
+    //     event,
+    //     download,
+    //     sec,
+    //     password
+    // )
     
-    dbManager.create(newWork);
-    res.redirect('/');
+    // dbManager.create(newWork);
+    // // if no error
+    // res.redirect('/success');
 })
 
 app.get('/works/create', (req,res) => {
-    let categories = db.categories.list;
-    let event = db.event.list
-    let options = Object;
-    options.categories = categories
-    options.event = event
-    res.render('works/create', {options: options});
+    res.send("此功能在建设中")
+    // let categories = db.categories.list;
+    // let event = db.event.list
+    // let options = Object;
+    // options.categories = categories
+    // options.event = event
+    // res.render('works/create', {options: options});
 })
 
 
@@ -181,17 +199,25 @@ app.get('/works/:id', (req,res) => {
 
 app.get('/works/:id/edit', (req,res) => {
     // res.render('works/edit', {work: work})
-    // res.send("此功能还在建设中");
-    res.status(200).json({ok:true});
+    res.send("此功能还在建设中");
 })
 app.get('/works/:id/delete', (req,res) => {
-    let work = dbManager.read(req.params.id)
-    res.render('works/delete', {work: work})
-    // res.send("此功能还在建设中")
+    // let work = dbManager.read(req.params.id)
+    // res.render('works/delete', {work: work})
+    res.send("此功能还在建设中")
 })
 
 app.delete('/works/:id', (req,res) => {
-    res.send("将要删除" + String(req.params.id) + "号作品");
+    let pw = dbManager.read(req.params.id);
+    if (pw) {
+        if (req.body.password === pw) {
+            res.redirect('/success');
+        } else {
+            res.redirect('/error');
+        }
+    } else {
+        res.redirect('/error')
+    }
 })
 
 app.get('/about', (req,res) => {
