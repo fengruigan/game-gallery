@@ -1,0 +1,63 @@
+<%- include('../partials/work-header') %>
+
+<div class="title">
+    <h1>
+        <i class="gamepad icon"></i> <%= work.title %>
+    </h1>
+    <% let auth = [] %>
+    <% work.authors.forEach( (author) => { %>
+        <% auth.push(author.name); %>
+    <% }) %>
+    <h2>
+        作者：<%= auth %>
+    </h2>
+</div>
+
+<div class="main ui container">
+
+    <h3>
+        若想要删除作品，请输入此作品的管理密码
+    </h3>
+    <form action="/works/<%= work.id %>?_method=delete" method="post" class="ui form">
+        <div class="field">
+            <input type="text" name="password" placeholder="管理密码">
+        </div>
+        <input type="submit" class="ui red button delete" value="删除">
+        <a href="/works/<%= work.id %>" class="ui blue button">返回</a>
+
+        <div class="response">
+            <div class="ui error message">
+                <div class="header">
+                    密码错误
+                </div>
+                <p>请重试</p>
+            </div>
+
+        </div>
+
+    </form>
+
+
+    <div class="error hide">
+        <h3>
+            <i class="close red icon"></i> 密码错误
+        </h3>
+    </div>
+
+    <div class="confirm hide">
+        <h3>
+            请问您确定要删除这个作品吗？
+        </h3>
+        <div  style="display: flex; justify-content: center;">  
+            <input type="submit" class="ui red button" value="确定删除">
+            <a href="/works/<%= work.id %>/" class="ui blue button ">返回</a>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<script src="/scripts/delete.js"></script>
+<%- include('../partials/footer') %>

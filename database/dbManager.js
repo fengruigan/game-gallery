@@ -11,6 +11,9 @@ class dbManager{
         // creates a new uuid'ed in the database 
         let id = uuid();
         work.id = id;
+        if (work.password === "") {
+            work.password = id;
+        }
         db[id] = work;
         // ================ push to allWorks array ================
         db.works.push(id);
@@ -28,6 +31,7 @@ class dbManager{
             if (db.event[work.event] === undefined) {
                 // create event if does not exist
                 db.event[work.event] = [];
+                db.event.list.push(work.event)
             }
             db.event[work.event].push(id);
         } else {
@@ -59,6 +63,11 @@ class dbManager{
             }
         });
         console.log("Directory created")
+        // ================ move image files into work folder in public ================
+        for (let i = 1; i <= work.imgCount; i++) {
+            fs.renameSync('./public/uploads/' + i + '.png', './public/' + id + '/images/' + i + '.png');
+        }
+        
     }
 
     static readAll = function(criteria="none") {
@@ -119,6 +128,12 @@ class dbManager{
                 });
                 if (arr.length === 0) {
                     delete db.event[og.event];
+                    // delete event from list of events
+                    db.event.list.forEach( (e, index) => {
+                        if (e === og.event) {
+                            db.event.list.splice(index, 1);
+                        }
+                    })
                 }
             } else {
                 // delete id from db.event["无"] array

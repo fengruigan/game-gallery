@@ -73,7 +73,7 @@ function sectionPreviewListener(prev, section) {
             title = "版块标题"
         }
         title = sanitize(title);
-        title = '<h2><i class="beer orange icon"></i> ' + title + '</h2><hr class="smooth">'
+        title = '<h2><i class="bookmark purple icon"></i> ' + title + '</h2><hr class="smooth">'
         let content = section.getElementsByClassName('section-content')[0].value;
         if (content === "") {
             content = "版块内容"

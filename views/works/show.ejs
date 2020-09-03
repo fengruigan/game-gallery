@@ -5,8 +5,12 @@
     <h1>
         <i class="gamepad icon"></i> <%= work.title %>
     </h1>
+    <% let auth = [] %>
+    <% work.authors.forEach( (author) => { %>
+        <% auth.push(author.name); %>
+    <% }) %>
     <h2>
-        作者：<%= work.authors %>
+        作者：<%= auth %>
     </h2>
 </div>
 
@@ -14,7 +18,7 @@
     
     <% if (work.description !== undefined) {%>
         <h2>
-            游戏简介
+            <i class="map signs brown icon"></i> 游戏简介
         </h2>
         <hr class="smooth">
         <p>
@@ -33,11 +37,9 @@
 
 				<div class="two wide column"></div>
 				<div class="twelve wide column">
-					<!-- <div class="ui placeholder"> -->
 						<div class="ui fluid image">
 							<img src="/<%= work.id %>/images/1.png" id="showcase">
 						</div>
-					<!-- </div> -->
 				</div>
 				<div class="two wide column"></div>
 
@@ -47,10 +49,8 @@
 
 				<div class="two wide column"></div>
 				<div class="twelve wide column">
-					<!-- <div class="ui placeholder"> -->
 						<ul id="list" data-id=<%= work.id %> data-imgCount= <%= work.imgCount %>>
 						</ul>
-					<!-- </div> -->
 				</div>
 				<div class="two wide column"></div>
 
@@ -58,38 +58,57 @@
 		</div>
     <% } %>
 
-    <% if (work.download !== undefined) {%>
-        <h2>
-            游戏试玩
-        </h2>
-        <hr class="smooth">
-        <a href="<%= work.download %>" class="ui big button function">下载链接</a>
+    
+    <h2>
+        <i class="gamepad green icon"></i> 游戏试玩
+    </h2>
+    <hr class="smooth">
+    <% if (work.download.link !== undefined && work.download.link !== "#") {%>
+        <a href="<%= work.download.link %>" class="ui big button function">下载链接</a>
+        <% if (work.download.key !== undefined && work.download.key !== "") { %>
+            <p> 提取码（ <%= work.download.key %> ）</p>
+        <% } %>
+    <% } else { %>
+        <p>抱歉！暂无下载链接</p>
     <% } %>
+    
+    <h2>
+        <i class="users icon"></i> 开发团队 <i class="user times icon"></i>  <%= work.authors.length %>
+    </h2>
+    <hr class="smooth">
+    <div class="ui raised cards four column">
+        <ul style="list-style-type: none;">
+            <% work.authors.forEach( (author) => { %>
+                    <li> <i class="child icon"></i> <%= author.name %> —— <%= author.position %></li>
+            <% }) %>
+        </ul>
+    </div>
+
     <% if (work.sections !== undefined && work.sections.length !== 0) { %>
-        <% if (work.team !== undefined) {%>
+        <% work.sections.forEach( (section) => { %>
             <h2>
-                开发团队
+                <i class="bookmark purple icon"></i> <%= section.title %>
             </h2>
             <hr class="smooth">
-            <p>
-                <%= work.description %>
-            </p>
-        <% } %>
-        <% work.sections.forEach( (section) => {
-            <h2>
-                <i class="book blue icon"></i> <%= section.title %>
-            </h2>
-            <p>
-                <%= section.content %>
-            </p>
-        })
+            
+            <% let content = section.content.split(/\r\n/g) %>
+            <% content.forEach( (c) => { %>
+                <p>
+                    <%= c %>
+                </p>
+            <% }) %>
+
+        <% }) %>
     <% } else { %>
         <h2>
-            抱歉！暂时还没有故事，在等待作者们的消息！
+            故事还在收集当中，敬请期待！
         </h2>
     <% } %>
 
     <a href="/" class="ui blue button">返回</a>
+    <a href="/works/:id/edit" class="ui orange button">编辑作品</a>
+    <a href="/works/<%= work.id %>/delete" class="ui red button">删除作品</a>
+
 </div>
 
 <script src="/scripts/work.js"></script>

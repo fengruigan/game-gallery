@@ -1,37 +1,38 @@
 {
 	"works": [
-		"e7f86cf1-e768-4659-be49-57711fa559a4",
+		"8ce4bffc-7c7b-4d47-995b-d0d6eddb533c",
 		"5f8e7712-e877-49a2-89f8-b3a67d180e68",
 		"038a1ce2-8c42-4dc1-8cce-9cf783cf682a",
 		"60baeeb8-061b-4b9c-954b-13d918b5534d",
 		"f9bf5d48-daf9-4cb4-a7cb-58abff027ed6",
 		"a46078ac-fd28-4414-bc4f-e90ff7a99531",
 		"396147dd-bb24-4492-921f-c3335d43db6a",
-		"bff3e771-6083-4b4a-9413-34e79c539558"
+		"bff3e771-6083-4b4a-9413-34e79c539558",
+		"a7bf085f-bb64-41a9-aded-4d4325c92561"
 	],
 	"categories": {
 		"list": [
 			"无分类",
-			"角色扮演",
-			"模拟",
 			"生存",
 			"解谜",
-			"塔防"
+			"塔防",
+			"模拟",
+			"角色扮演"
 		],
 		"无分类": [
 			"5f8e7712-e877-49a2-89f8-b3a67d180e68",
 			"a46078ac-fd28-4414-bc4f-e90ff7a99531"
 		],
 		"生存": [
-			"e7f86cf1-e768-4659-be49-57711fa559a4",
 			"f9bf5d48-daf9-4cb4-a7cb-58abff027ed6"
 		],
 		"解谜": [
 			"038a1ce2-8c42-4dc1-8cce-9cf783cf682a",
-			"bff3e771-6083-4b4a-9413-34e79c539558"
+			"bff3e771-6083-4b4a-9413-34e79c539558",
+			"a7bf085f-bb64-41a9-aded-4d4325c92561"
 		],
 		"塔防": [
-			"e7f86cf1-e768-4659-be49-57711fa559a4"
+			"8ce4bffc-7c7b-4d47-995b-d0d6eddb533c"
 		],
 		"模拟": [
 			"60baeeb8-061b-4b9c-954b-13d918b5534d"
@@ -41,46 +42,41 @@
 		]
 	},
 	"event": {
+		"list": [
+			"2020-CiGA"
+		],
 		"2020-CiGA": [
-			"e7f86cf1-e768-4659-be49-57711fa559a4",
 			"5f8e7712-e877-49a2-89f8-b3a67d180e68",
 			"038a1ce2-8c42-4dc1-8cce-9cf783cf682a",
 			"60baeeb8-061b-4b9c-954b-13d918b5534d",
 			"f9bf5d48-daf9-4cb4-a7cb-58abff027ed6",
 			"a46078ac-fd28-4414-bc4f-e90ff7a99531",
 			"396147dd-bb24-4492-921f-c3335d43db6a",
-			"bff3e771-6083-4b4a-9413-34e79c539558"
+			"bff3e771-6083-4b4a-9413-34e79c539558",
+			"a7bf085f-bb64-41a9-aded-4d4325c92561",
+			"8ce4bffc-7c7b-4d47-995b-d0d6eddb533c"
 		]
-	},
-	"e7f86cf1-e768-4659-be49-57711fa559a4": {
-		"id": "e7f86cf1-e768-4659-be49-57711fa559a4",
-		"title": "裂变",
-		"authors": [
-			"三思",
-			"曲未殇",
-			"油油",
-			"影子",
-			"罗德",
-			"健康大王"
-		],
-		"description": "这是一场天灾，还是人为，莉莉丝不清楚，她只知道她家的房子正在被巨型蚂蚁撕开口子，源源不断的蚂蚁从裂缝中涌入。玩家需要利用空投的物资，保护莉莉丝，just do it!",
-		"imgCount": 4,
-		"category": [
-			"塔防",
-			"生存"
-		],
-		"event": "2020-CiGA",
-		"download": "#",
-		"sections": []
 	},
 	"038a1ce2-8c42-4dc1-8cce-9cf783cf682a": {
 		"id": "038a1ce2-8c42-4dc1-8cce-9cf783cf682a",
 		"title": "家园&home/绮梦",
 		"authors": [
-			"拘谨的男人",
-			"Rhy",
-			"无名程序",
-			"无名美术"
+			{
+				"name": "拘谨的男人",
+				"position": "全能"
+			},
+			{
+				"name": "Rhy",
+				"position": "全能"
+			},
+			{
+				"name": "无名程序",
+				"position": "全能"
+			},
+			{
+				"name": "无名美术",
+				"position": "全能"
+			}
 		],
 		"description": "看到题目的时候其实是有些懵逼的，最后决定还是最简单的看图说话，利用题目图片直接做个讲故事的解谜游戏 大概说的无非就是人类的未来、希望与绝望、自我意识其实只是其他生物的脑海演绎or记忆回溯。。。",
 		"imgCount": 5,
@@ -88,16 +84,29 @@
 			"解谜"
 		],
 		"event": "2020-CiGA",
-		"download": "#",
-		"sections": []
+		"download": {
+			"link": "#",
+			"key": ""
+		},
+		"sections": [],
+		"password": ""
 	},
 	"60baeeb8-061b-4b9c-954b-13d918b5534d": {
 		"id": "60baeeb8-061b-4b9c-954b-13d918b5534d",
 		"title": "Ant Express",
 		"authors": [
-			"丹青叶",
-			"节操是嘛可以吃吗",
-			"fangzhangmnm"
+			{
+				"name": "丹青叶",
+				"position": "全能"
+			},
+			{
+				"name": "节操是嘛可以吃吗",
+				"position": "全能"
+			},
+			{
+				"name": "fangzhangmnm",
+				"position": "全能"
+			}
 		],
 		"description": "这是一个简简单单的快递中心模拟游戏 分拣快递 安排路线 派送快递 就这么简单~",
 		"imgCount": 3,
@@ -105,18 +114,37 @@
 			"模拟"
 		],
 		"event": "2020-CiGA",
-		"download": "#",
-		"sections": []
+		"download": {
+			"link": "#",
+			"key": ""
+		},
+		"sections": [],
+		"password": ""
 	},
 	"f9bf5d48-daf9-4cb4-a7cb-58abff027ed6": {
 		"id": "f9bf5d48-daf9-4cb4-a7cb-58abff027ed6",
 		"title": "诞生日",
 		"authors": [
-			"Nightvision65",
-			"昏暗",
-			"o2o",
-			"1kunpeng",
-			"Papaya"
+			{
+				"name": "Nightvision65",
+				"position": "全能"
+			},
+			{
+				"name": "昏暗",
+				"position": "全能"
+			},
+			{
+				"name": "o2o",
+				"position": "全能"
+			},
+			{
+				"name": "1kunpeng",
+				"position": "全能"
+			},
+			{
+				"name": "Papaya",
+				"position": "全能"
+			}
 		],
 		"description": "今天是姜饼人的生日，姜饼人得到了一块大蛋糕，姜饼人想要蛋糕上有更多好吃的，你能帮助姜饼人么。游戏是一款“射击塔防游戏”，玩家需要从糖豆商人手中订购各种食材来守卫自己的蛋糕，可是额外的快递盒子会对玩家照成阻碍，你订购的物品越多，能使用的土地也就越少。",
 		"imgCount": 5,
@@ -124,18 +152,37 @@
 			"生存"
 		],
 		"event": "2020-CiGA",
-		"download": "#",
-		"sections": []
+		"download": {
+			"link": "#",
+			"key": ""
+		},
+		"sections": [],
+		"password": ""
 	},
 	"a46078ac-fd28-4414-bc4f-e90ff7a99531": {
 		"id": "a46078ac-fd28-4414-bc4f-e90ff7a99531",
 		"title": "剁手少女的自我救赎",
 		"authors": [
-			"Daan",
-			"Huky",
-			"曲奇",
-			"Monlin",
-			"马肥"
+			{
+				"name": "Daan",
+				"position": "全能"
+			},
+			{
+				"name": "Huky",
+				"position": "全能"
+			},
+			{
+				"name": "曲奇",
+				"position": "全能"
+			},
+			{
+				"name": "Monlin",
+				"position": "全能"
+			},
+			{
+				"name": "马肥",
+				"position": "全能"
+			}
 		],
 		"description": "一款含有轻度故事线的Merge类休闲游戏",
 		"imgCount": 4,
@@ -143,17 +190,33 @@
 			"无分类"
 		],
 		"event": "2020-CiGA",
-		"download": "#",
-		"sections": []
+		"download": {
+			"link": "#",
+			"key": ""
+		},
+		"sections": [],
+		"password": ""
 	},
 	"396147dd-bb24-4492-921f-c3335d43db6a": {
 		"id": "396147dd-bb24-4492-921f-c3335d43db6a",
 		"title": "快递危机",
 		"authors": [
-			"AryesLi",
-			"Cara",
-			"枫叶Mapleaf",
-			"CNGEGE"
+			{
+				"name": "AryesLi",
+				"position": "全能"
+			},
+			{
+				"name": "Cara",
+				"position": "全能"
+			},
+			{
+				"name": "枫叶Mapleaf",
+				"position": "全能"
+			},
+			{
+				"name": "CNGEGE",
+				"position": "全能"
+			}
 		],
 		"description": "我们最初看到主题时的灵感来源是来自于地上的缝隙与填充在其中的包裹，一开始我们考虑过去做一个用会弹出内部物品的包裹进行类似俄罗斯方块的方向，但是在玩法部分是否足够有趣上产生了分歧，最后决定继续深化包裹的概念，于是便有了现在的游戏。",
 		"imgCount": 4,
@@ -161,14 +224,21 @@
 			"角色扮演"
 		],
 		"event": "2020-CiGA",
-		"download": "#",
-		"sections": []
+		"download": {
+			"link": "#",
+			"key": ""
+		},
+		"sections": [],
+		"password": ""
 	},
 	"5f8e7712-e877-49a2-89f8-b3a67d180e68": {
 		"id": "5f8e7712-e877-49a2-89f8-b3a67d180e68",
 		"title": "You'll Never Get Any Gold",
 		"authors": [
-			"legendsmb"
+			{
+				"name": "legendsmb",
+				"position": "全能"
+			}
 		],
 		"description": "主人公是一个机器人，它为了防止人类不断的开采自然资源，因此打算收集这些自然资源把它们运往地底深处防止被人类开采到。",
 		"imgCount": 3,
@@ -176,17 +246,33 @@
 			"无分类"
 		],
 		"event": "2020-CiGA",
-		"download": "#",
-		"sections": []
+		"download": {
+			"link": "#",
+			"key": ""
+		},
+		"sections": [],
+		"password": ""
 	},
 	"bff3e771-6083-4b4a-9413-34e79c539558": {
 		"id": "bff3e771-6083-4b4a-9413-34e79c539558",
 		"title": "SEEK",
 		"authors": [
-			"Mr_porridge",
-			"风铭言",
-			"阿九阿尔法",
-			"Xbrain"
+			{
+				"name": "Mr_porridge",
+				"position": "全能"
+			},
+			{
+				"name": "风铭言",
+				"position": "全能"
+			},
+			{
+				"name": "阿九阿尔法",
+				"position": "全能"
+			},
+			{
+				"name": "Xbrain",
+				"position": "全能"
+			}
 		],
 		"description": "蚂蚁，快递，破碎的镜子，抽屉，相册，天窗，裂缝，门，抑郁症发作药物服用后的蚁走感，意象的世界。他们发不出声，只能隔着牢笼看外面的世界，有时候也不是他们不想离开，牢笼有时候就是自己，活到最后就如同一个提线木偶。脱轨的世界，割离的外界，唯有那些能唤醒自己的美好记忆的箱子，打开心灵宝箱的钥匙。追随她的身影，世界从黑白变成彩色，从木偶变成人，从心境到现实，找回真实的自我。",
 		"imgCount": 4,
@@ -194,7 +280,88 @@
 			"解谜"
 		],
 		"event": "2020-CiGA",
-		"download": "#",
-		"sections": []
+		"download": {
+			"link": "#",
+			"key": ""
+		},
+		"sections": [],
+		"password": ""
+	},
+	"a7bf085f-bb64-41a9-aded-4d4325c92561": {
+		"id": "a7bf085f-bb64-41a9-aded-4d4325c92561",
+		"title": "allIsYourFault",
+		"authors": [
+			{
+				"name": "俊壳",
+				"position": "全能"
+			}
+		],
+		"description": "游戏是一个第一人称解密类型的游戏，本想做一个反思赌博以及家庭破碎的游戏，奈何时间不够，一个人sole真的累，很多想法没有实现。不过基本上还是能够完整体验一遍流程，具体在游戏中体会叭！ 注：游戏中配音是机器生成的",
+		"imgCount": 3,
+		"category": [
+			"解谜"
+		],
+		"event": "2020-CiGA",
+		"download": {
+			"link": "https://pan.baidu.com/s/1BnWCDXfMVVD8i3gRH5mmFQ",
+			"key": "43h5"
+		},
+		"sections": [],
+		"password": "a7bf085f-bb64-41a9-aded-4d4325c92561"
+	},
+	"8ce4bffc-7c7b-4d47-995b-d0d6eddb533c": {
+		"id": "8ce4bffc-7c7b-4d47-995b-d0d6eddb533c",
+		"title": "裂变（fission）",
+		"authors": [
+			{
+				"name": "三思",
+				"position": "策划"
+			},
+			{
+				"name": "曲未殇",
+				"position": "策划"
+			},
+			{
+				"name": "油油",
+				"position": "程序"
+			},
+			{
+				"name": "影子",
+				"position": "程序"
+			},
+			{
+				"name": "罗德",
+				"position": "美术"
+			},
+			{
+				"name": "健康大王",
+				"position": "音乐"
+			}
+		],
+		"description": "这是一场天灾，还是人为，莉莉丝不清楚，她只知道她家的房子正在被巨型蚂蚁撕开口子，源源不断的蚂蚁从裂缝中涌入。玩家需要利用空投的物资，保护莉莉丝，just do it!",
+		"imgCount": 4,
+		"category": [
+			"塔防"
+		],
+		"event": "2020-CiGA",
+		"download": {
+			"link": "https://pan.baidu.com/s/1EKVS-ue-shJT7aspwhihhQ",
+			"key": "j96h"
+		},
+		"sections": [
+			{
+				"title": "开发历程",
+				"content": "在8.14的晚上我们小组6个人从五点开始守在直播间，紧张的等着题目的公布。在6点拿到题目之后，我们蒙了很久：这啥啊？不是吧啊sir，这啥题目啊？？？没办法，还是硬着头皮上吧，于是开始了三个小时的头脑风暴，我们提出了无数个想法又一个个否定：不行这个和主题没啥关系吧；不行这个好像不是很符合主题……。最后的最后，我们放弃了从主题到玩法的过程，直接开始从玩法到主题的思路。\r\n我们开始就决定不做2d横板大闯关益智小游戏，没有理由，因为我们程序大佬就是坠dio的！！！然后团队分别给出：塔防、动作和揭秘游戏，经过一番讨论，大家最后把预制作的玩法确定为塔防+生存（不知道为啥好多队伍都做了快递？emm好奇怪）。\r\n确定做什么内容之后接下来就是开始正常的制作流程了：策划开始写配置表，美术开始绘制场景与人物，程序开始掉头发的爆肝，音乐大佬撑起音效……我们组遇到的最大的问题其实还是时间不足，许多内容没来的及制作：物品栏、得分机制还有新手教程…太难受了呜呜呜/(ㄒoㄒ)/~~\r\n"
+			},
+			{
+				"title": "游玩体验",
+				"content": "我们从第一个版本出来之后一直在玩，大家一边吐槽太难了，玩个塔防游戏还要看脸，小女孩（主角）走路速度太慢之类的，然后为了血怒前仇，大家一致决定游戏前面很难，当小女孩拿到关键道具之后怒杀蚂蚁！嘿嘿嘿！（虽然是我坚持没让程序大佬改走路速度的emmm）"
+			},
+			{
+				"title": "心得",
+				"content": "其实这次比赛真的给我带来了不一样的体会：游戏制作的流程，团队的沟通的重要性，以及最重要的相互理解与合作。两位程序大佬油油和影子轮流肝程序，美术大佬罗德爆肝所有绘制需求，音乐大佬健康独自一人撑起音效的天，策划大佬三思带着弟中弟（我）写各种策划所需。这些东西到今天都很难相信是48h之内完成的，并且难以置信的做出了包括微信小游戏在内的8个迭代版本。真的非常感谢各位大佬可以包容弟中弟各种奇葩时刻（擦脸.gif）"
+			}
+		],
+		"password": "8ce4bffc-7c7b-4d47-995b-d0d6eddb533c"
 	}
 }
