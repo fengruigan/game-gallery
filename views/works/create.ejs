@@ -30,27 +30,66 @@
                 </div>
                 <div class="field">
                     <label for="author">职位</label>
-                    <input type="text" name="author[position]" placeholder="程序/策划/美术/音乐/全能">
+                    <input type="text" name="author[position]" placeholder="职位">
                 </div>
                 <div class="field">
                     <button type="button" class="ui red small button del-author hide" style="margin-top: 2em"><i class="minus icon"></i> 删除此作者</button>
                 </div>
             </div>
         </div>
-        <button type="button" class="ui blue button small add-author"><i class="plus icon"></i> 添加作者</button>
+        <button type="button" class="ui blue button small add-author"><i class="user plus icon"></i> 添加作者</button>
 
         <div class="ui divider"></div>
         <div class="field">
             <label for="description">简介</label>
             <textarea name="description" rows="3" placeholder="稍微一下这个游戏吧~"></textarea>
-            
         </div>
+        <div class="two fields">
+            <div class="field">
+                <label for="category">游戏分类</label>
+                <select name="category" class="ui dropdown">
+                    <% options.categories.forEach( (c) => { %>
+                        <option value="<%= c %>"><%= c %></option>
+                    <% }) %>
+                </select>
+            </div>
+            <div class="field">
+                <label for="category">没有找到你的分类？</label>
+                <input type="text" name="category" placeholder="写下你的分类吧~">
+            </div>
+        </div>
+        <div class="two fields">
+            <div class="field">
+                <label for="event">这个游戏参加过活动吗？</label>
+                <select name="event" class="ui simple dropdown multiple">
+                    <% options.event.forEach( (e) => { %>
+                        <option value="<%= e %>"><%= e %></option>
+                    <% }) %>
+                </select>
+            </div>
+            <div class="field">
+                <label for="event">没有找到你的活动？</label>
+                <input type="text" name="event" placeholder="写下你的活动吧~">
+            </div>
+        </div>
+
+
         <div class="three fields">
             <div class="field">
                 <label for="image">展示一下游戏画面吧~（可上传最多10张游戏画面）</label>
                 <input type="file" name="image" multiple>
             </div>
-        </div>  
+        </div>
+        <div class="two fields">
+            <div class="field">
+                <label for="download[link]">下载链接</label>
+                <input type="text" name="download[link]" placeholder="链接">
+            </div>
+            <div class="field">
+                <label for="download[key]">如果有文件提取码，请填写</label>
+                <input type="text" name="download[key]" placeholder="提取码">
+            </div>
+        </div>
 
         <h2>
             <i class="pencil alternate brown icon"></i> 游戏背后的故事
@@ -66,10 +105,16 @@
 
         <div class="ui hidden divider"></div>
         <hr class="abrupt">
+
+        <div class="field">
+            <label for="password">请输入一个用于管理这个作品的密码（这个密码会在以后用于修改作品内容，可与队员分享，但注意保密）</label>
+            <input type="password" name="password" maxlength="40" placeholder="密码（最多40位）">
+        </div>
         <input class="ui button green" type="submit" value="上传游戏">
     </form>
 
 </div>
+
 
 
 <div class="section" style="display: none">

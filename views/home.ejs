@@ -79,7 +79,11 @@
                 <div class="ui raised link cards four column">
             <% } %>
                 <% if (work.authors.length === 0) {work.authors = "作者没有留下名字"} %>
-                    <div class="ui card" id=<%= work.id %> data-title=<%= work.title %> data-authors="<%= work.authors %>" data-imgCount=<%= work.imgCount %> data-description="<%= work.description %>" >
+                    <% let auth = [] %>
+                    <% work.authors.forEach( (author) => { %>
+                        <% auth.push(author.name); %>
+                    <% }) %>
+                    <div class="ui card" id=<%= work.id %> data-title=<%= work.title %> data-authors="<%= auth %>" data-imgCount=<%= work.imgCount %> data-description="<%= work.description %>" >
                         <div class="image">
                             <img class="thumbnail" src="/<%= work.id %>/images/1.png">
                         </div>

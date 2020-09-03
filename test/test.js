@@ -8,5 +8,6 @@ let uuid = require("uuid").v4,
     bodyParser = require('body-parser')
 
 
-let read = fs.readdirSync('./public/uploads')
-console.log(read)
+// let read = fs.readdirSync('./public/uploads')
+// console.log(read)
+fs.renameSync("./public/uploads/1.png", "./test/2.png")

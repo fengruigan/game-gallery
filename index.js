@@ -2,6 +2,8 @@ var express = require('express'),
     app = express(),
     mongoose = require('mongoose'),
     dbManager = require('./database/dbManager'),
+    Work = require('./database/workSchema'),
+    db = require('./database/workDB.json'),
     bodyParser = require('body-parser'),
     multer = require('multer'),
     fs = require('fs');
@@ -41,7 +43,7 @@ app.get('/', (req,res) => {
     res.render('home', {works: works});
 });
 
-app.post('/works', upload.array('image'), (req,res, next) => {
+app.post('/works', upload.array('image'), (req,res,next) => {
     // res.send("creating work");
     // console.log(req.files);
     // console.log(req.body);
@@ -49,52 +51,116 @@ app.post('/works', upload.array('image'), (req,res, next) => {
     let title = req.body.title;
     let authors = req.body.author
     let description = req.body.description
-    // let section = {
-    //     "title": req.body.section[title],
-    //     "content": req.body.section[content]
-    // }
+    let category = req.body.category
+    let event = req.body.event;
+    let imgCount = req.files.length;
+    let download = req.body.download
     let sections = req.body.section
+    let password = req.body.password
 
     let auth = []
     if(typeof(authors.name) === "object") {
         authors.name.forEach( (name, index) => {
+            if (name === "") {
+                name = '无名'
+            }
+            if (authors.position[index] === "") {
+                position = '全能'
+            } else {
+                position = authors.position[index]
+            }
             auth.push({
                 "name": name,
-                "position": authors.position[index]
+                "position": position
             });
         });
     } else {
+        let name = authors.name
+        if (name === "") {
+            name = '无名'
+        }
+        if (authors.position === "") {
+            position = '全能'
+        } else {
+            position = authors.position
+        }
         auth.push({
-            "name": authors.name,
-            "position": authors.position
+            "name": name,
+            "position": position
         })
+    }
+
+    if (category[1] !== "") {
+        category.splice(0,1)
+    } else {
+        category.splice(1,1)
+    }
+    if (event[1] !== "") {
+        event = event[1]
+    } else {
+        event = event[0]
+    }
+
+    if (download.link === "") {
+        download.link = "#";
     }
 
     let sec = []
-    if(typeof(sections.title) === "object") {
-        sections.title.forEach( (title, index) => {
-            sec.push({
-                "title": title,
-                "content": sections.content[index]
+    if (sections !== undefined) {
+        if(typeof(sections.title) === "object") {
+            sections.title.forEach( (title, index) => {
+                let content = section.content[index]
+                content = sanitize(content);
+                if (title === "") {
+                    title = "版块标题"
+                }
+                if (content === "") {
+                    content = "版块内容"
+                }
+                sec.push({
+                    "title": title,
+                    "content": content
+                });
             });
-        });
-    } else {
-        sec.push({
-            "title": sections.title,
-            "content": sections.content
-        })
+        } else {
+            if (sections.title === "") {
+                sections.title = "版块标题"
+            }
+            let content = sections.content
+            if (content === "") {
+                content = "版块内容"
+            }
+            content = sanitize(content);
+            sec.push({
+                "title": sections.title,
+                "content": content
+            })
+        }
     }
 
-
-    console.log(title);
-    console.log(auth);
-    console.log(description);
-    console.log(sec);
+    let newWork = new Work(
+        title,
+        auth,
+        description,
+        imgCount,
+        category,
+        event,
+        download,
+        sec,
+        password
+    )
+    
+    dbManager.create(newWork);
     res.redirect('/');
 })
 
 app.get('/works/create', (req,res) => {
-    res.render('works/create');
+    let categories = db.categories.list;
+    let event = db.event.list
+    let options = Object;
+    options.categories = categories
+    options.event = event
+    res.render('works/create', {options: options});
 })
 
 
@@ -114,3 +180,10 @@ app.get('/about', (req,res) => {
 app.listen(process.env.PORT || 8000, () => {
     console.log('Server running');
 })
+
+
+function sanitize(text){
+    var sanitized = text.replace("<script>", "");
+    sanitized = sanitized.replace("</script>", "");
+    return sanitized;
+}
