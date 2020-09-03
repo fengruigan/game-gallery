@@ -1,0 +1,139 @@
+<%- include('../partials/header') %>
+
+<div class="title">
+    <h1>
+        <i class="gamepad icon"></i> 展示你的游戏
+    </h1>
+    <h2>
+        用你喜欢的方式介绍一下你的游戏吧~
+    </h2>
+</div>
+
+<div class="main ui container">
+
+    <h2>
+        <i class="tasks blue icon"></i> 先收集一下基本信息
+    </h2>
+    <hr class="abrupt">
+
+    <form action="/works" enctype="multipart/form-data" method="POST" class="ui form">
+        <div class="field">
+            <label for="title">游戏标题</label>
+            <input type="text" name="title" required placeholder="写下响亮的名字吧~">
+        </div>
+        <div class="ui divider"></div>
+        <div class="author">
+            <div class="three fields">
+                <div class="field">
+                    <label for="author">作者</label>
+                    <input type="text" name="author[name]" placeholder="名字或昵称">
+                </div>
+                <div class="field">
+                    <label for="author">职位</label>
+                    <input type="text" name="author[position]" placeholder="职位">
+                </div>
+                <div class="field">
+                    <button type="button" class="ui red small button del-author hide" style="margin-top: 2em"><i class="minus icon"></i> 删除此作者</button>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="ui blue button small add-author"><i class="user plus icon"></i> 添加作者</button>
+
+        <div class="ui divider"></div>
+        <div class="field">
+            <label for="description">简介</label>
+            <textarea name="description" rows="3" placeholder="稍微一下这个游戏吧~"></textarea>
+        </div>
+        <div class="two fields">
+            <div class="field">
+                <label for="category">游戏分类</label>
+                <select name="category" class="ui dropdown">
+                    <% options.categories.forEach( (c) => { %>
+                        <option value="<%= c %>"><%= c %></option>
+                    <% }) %>
+                </select>
+            </div>
+            <div class="field">
+                <label for="category">没有找到你的分类？</label>
+                <input type="text" name="category" placeholder="写下你的分类吧~">
+            </div>
+        </div>
+        <div class="two fields">
+            <div class="field">
+                <label for="event">这个游戏参加过活动吗？</label>
+                <select name="event" class="ui simple dropdown multiple">
+                    <% options.event.forEach( (e) => { %>
+                        <option value="<%= e %>"><%= e %></option>
+                    <% }) %>
+                </select>
+            </div>
+            <div class="field">
+                <label for="event">没有找到你的活动？</label>
+                <input type="text" name="event" placeholder="写下你的活动吧~">
+            </div>
+        </div>
+
+
+        <div class="three fields">
+            <div class="field">
+                <label for="image">展示一下游戏画面吧~（可上传最多10张游戏画面）</label>
+                <input type="file" name="image" multiple>
+            </div>
+        </div>
+        <div class="two fields">
+            <div class="field">
+                <label for="download[link]">下载链接</label>
+                <input type="text" name="download[link]" placeholder="链接">
+            </div>
+            <div class="field">
+                <label for="download[key]">如果有文件提取码，请填写</label>
+                <input type="text" name="download[key]" placeholder="提取码">
+            </div>
+        </div>
+
+        <h2>
+            <i class="pencil alternate brown icon"></i> 游戏背后的故事
+        </h2>
+        <hr class="abrupt">
+
+        <div class="sections">
+
+        </div>
+
+        <div class="ui divider"></div>
+        <button type="button" class="ui blue button small add-section"><i class="plus icon"></i> 添加版块</button>
+
+        <div class="ui hidden divider"></div>
+        <hr class="abrupt">
+
+        <div class="field">
+            <label for="password">请输入一个用于管理这个作品的密码（这个密码会在以后用于修改作品内容，可与队员分享，但注意保密）</label>
+            <input type="password" name="password" maxlength="40" placeholder="密码（最多40位）">
+        </div>
+        <input class="ui button green" type="submit" value="上传游戏">
+    </form>
+
+</div>
+
+
+
+<div class="section" style="display: none">
+    <div class="ui divider hidden"></div>
+    <div class="field">
+        <label for="section[title]">新版块</label>
+        <input type="text" class="section-title" name="section[title]" placeholder="取一个标题吧~">
+    </div>
+    <div class="field">
+        <textarea class="section-content" name="section[content]" placeholder="写下内容吧~"></textarea>
+    </div>
+    <div class="section-preview" style="margin-bottom: 2em">
+    </div>
+
+    <button type="button" class="ui blue small button preview"><i class="search icon"></i> 预览版块</button>
+    <button type="button" class="ui red small button del-section"><i class="minus icon"></i> 删除此版块</button>
+</div>
+
+
+<script src="/scripts/create.js"></script>
+
+<%- include('../partials/footer') %>

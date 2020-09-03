@@ -6,6 +6,7 @@ var express = require('express'),
     db = require('./database/workDB.json'),
     bodyParser = require('body-parser'),
     multer = require('multer'),
+    methodOverride = require('method-override'),
     fs = require('fs');
 
 // =========
@@ -43,7 +44,7 @@ app.get('/', (req,res) => {
     res.render('home', {works: works});
 });
 
-app.post('/works', upload.array('image'), (req,res,next) => {
+app.post('/works', upload.array('image', 10), (req,res,next) => {
     // res.send("creating work");
     // console.log(req.files);
     // console.log(req.body);
@@ -165,12 +166,32 @@ app.get('/works/create', (req,res) => {
 
 
 app.get('/works/:id', (req,res) => {
-    let work = dbManager.read(req.params.id);
-    if (work) {
-        // res.render("works/" + req.params.id, {work: work});
-        // res.send("Going to render ID " + req.params.id);
-        res.render('works/show', {work: work})
+    if (req.params.id === "5f8e7712-e877-49a2-89f8-b3a67d180e68") {
+        let work = dbManager.read(req.params.id);
+        res.render('works/5f8e7712-e877-49a2-89f8-b3a67d180e68', {work: work})
+    } else {
+        let work = dbManager.read(req.params.id);
+        if (work) {
+            // res.render("works/" + req.params.id, {work: work});
+            // res.send("Going to render ID " + req.params.id);
+            res.render('works/show', {work: work})
+        }
     }
+})
+
+app.get('/works/:id/edit', (req,res) => {
+    // res.render('works/edit', {work: work})
+    // res.send("此功能还在建设中");
+    res.status(200).json({ok:true});
+})
+app.get('/works/:id/delete', (req,res) => {
+    let work = dbManager.read(req.params.id)
+    res.render('works/delete', {work: work})
+    // res.send("此功能还在建设中")
+})
+
+app.delete('/works/:id', (req,res) => {
+    res.send("将要删除" + String(req.params.id) + "号作品");
 })
 
 app.get('/about', (req,res) => {

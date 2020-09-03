@@ -4,8 +4,12 @@
     <h1>
         <i class="gamepad icon"></i> <%= work.title %>
     </h1>
+    <% let auth = [] %>
+    <% work.authors.forEach( (author) => { %>
+        <% auth.push(author.name); %>
+    <% }) %>
     <h2>
-        作者：<%= work.authors %>
+        作者：<%= auth %>
     </h2>
 </div>
 
@@ -15,27 +19,39 @@
     </h2>
     <hr class="smooth">
     <p>
-        主人公是一个机器人，它为了防止人类不断的开采自然资源，因此打算收集这些自然资源把它们运往地底深处防止被人类开采到。
+        <%= work.description %>
     </p>
-    <h2>
-        <i class="thumbtack violet icon"></i> 游戏画面
-    </h2>
-    <hr class="smooth">
-    <div class="ui grid">
-        <div class="two wide column">
+    <% if (work.imgCount !== undefined || work.imgCount !== 0) {%>
+        <h2>
+			<i class="thumbtack violet icon"></i> 游戏画面
+		</h2>
+		<hr class="smooth">
+		<div class="ui divider hidden"></div>
+		<div class="ui grid">
+			<div class="row">
 
-        </div>
-        <div class="twelve wide column">
-            <!-- <div class="ui placeholder"> -->
-                <div class="ui fluid image">
-                    <img src="/<%= work.id %>/images/1.png">
-                </div>
-            <!-- </div> -->
-        </div>
-        <div class="two wide column">
+				<div class="two wide column"></div>
+				<div class="twelve wide column">
+						<div class="ui fluid image">
+							<img src="/<%= work.id %>/images/1.png" id="showcase">
+						</div>
+				</div>
+				<div class="two wide column"></div>
 
-        </div>
-    </div>
+			</div>
+
+			<div class="row">
+
+				<div class="two wide column"></div>
+				<div class="twelve wide column">
+						<ul id="list" data-id=<%= work.id %> data-imgCount= <%= work.imgCount %>>
+						</ul>
+				</div>
+				<div class="two wide column"></div>
+
+			</div>
+		</div>
+    <% } %>
 
     <h2>
 		<i class="gamepad green icon"></i> 游戏试玩
@@ -113,5 +129,7 @@
 <a href="/" class="ui blue button">返回</a>
 
 </div>
+
+<script src="/scripts/work.js"></script>
 
 <%- include('../partials/footer') %>
