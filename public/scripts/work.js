@@ -20,7 +20,7 @@ function generateList() {
     let imgCount = document.querySelector('#list').dataset.imgcount
 
     for (let i = 1; i <= imgCount; i++) {
-        let imgUrl = "/" + id + "/images/" + String(i) + ".png";
+        let imgUrl = "https://indie-gallery-app.imfast.io/" + id + "/images/" + String(i) + ".png";
         let li = document.createElement('li');
         let img = document.createElement('img')
         img.src= imgUrl;

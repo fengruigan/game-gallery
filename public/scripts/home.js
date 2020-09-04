@@ -53,7 +53,7 @@ function populateDetail(data) {
         list.removeChild(list.firstChild);
     }
     for (let i = 1; i <= Math.min(work.imgCount, 4); i++) {
-        let imgUrl = "/" + work.id + "/images/" + String(i) + ".png";
+        let imgUrl = "https://indie-gallery-app.imfast.io/" + work.id + "/images/" + String(i) + ".png";
         let li = document.createElement('li');
         let img = document.createElement('img')
         img.src= imgUrl;
