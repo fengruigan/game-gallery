@@ -1,3 +1,5 @@
+require('newrelic');
+
 var express = require('express'),
     app = express(),
     mongoose = require('mongoose'),
@@ -42,12 +44,6 @@ app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({extended: true}));
 
-// app.use(flash());
-
-// app.use((req,res,next) => {
-//     res.locals.error = req.flash('error');
-//     res.locals.success = req.flash('success');
-// })
 
 app.get('/', (req,res) => {
     let works = dbManager.readAll();
