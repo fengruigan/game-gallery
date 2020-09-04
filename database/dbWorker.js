@@ -35,5 +35,5 @@ var newWork = new work(
 
 // console.log(newWork.authors)
 // dbManager.create(newWork);
-dbManager.destory("ddae7e62-6f59-4bc5-a111-5ca676c53711");
+// dbManager.destory("ddae7e62-6f59-4bc5-a111-5ca676c53711");
 // dbManager.update("bff3e771-6083-4b4a-9413-34e79c539558", newWork)
