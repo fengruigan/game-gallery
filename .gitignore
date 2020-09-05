@@ -1,1 +1,9 @@
 .docx
+
+# testing
+/test
+
+# misc
+newrelic.js
+newrelic_agent.log*
+handy-bonbon-288604-8ff6e1dc52bc.json
