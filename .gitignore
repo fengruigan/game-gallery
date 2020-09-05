@@ -2,9 +2,10 @@
 /node_modules
 
 # testing
-test.*
+/test
 
 
 # misc
+*.log
 handy-bonbon-288604-8ff6e1dc52bc.json
 dbCopy.json
