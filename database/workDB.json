@@ -8,7 +8,8 @@
 		"a46078ac-fd28-4414-bc4f-e90ff7a99531",
 		"396147dd-bb24-4492-921f-c3335d43db6a",
 		"bff3e771-6083-4b4a-9413-34e79c539558",
-		"a7bf085f-bb64-41a9-aded-4d4325c92561"
+		"a7bf085f-bb64-41a9-aded-4d4325c92561",
+		"a197e718-45ca-47cc-8698-43af31385a23"
 	],
 	"categories": {
 		"list": [
@@ -21,7 +22,8 @@
 		],
 		"无分类": [
 			"5f8e7712-e877-49a2-89f8-b3a67d180e68",
-			"a46078ac-fd28-4414-bc4f-e90ff7a99531"
+			"a46078ac-fd28-4414-bc4f-e90ff7a99531",
+			"a197e718-45ca-47cc-8698-43af31385a23"
 		],
 		"生存": [
 			"f9bf5d48-daf9-4cb4-a7cb-58abff027ed6"
@@ -54,7 +56,8 @@
 			"396147dd-bb24-4492-921f-c3335d43db6a",
 			"bff3e771-6083-4b4a-9413-34e79c539558",
 			"a7bf085f-bb64-41a9-aded-4d4325c92561",
-			"8ce4bffc-7c7b-4d47-995b-d0d6eddb533c"
+			"8ce4bffc-7c7b-4d47-995b-d0d6eddb533c",
+			"a197e718-45ca-47cc-8698-43af31385a23"
 		]
 	},
 	"038a1ce2-8c42-4dc1-8cce-9cf783cf682a": {
@@ -363,5 +366,27 @@
 			}
 		],
 		"password": "8ce4bffc-7c7b-4d47-995b-d0d6eddb533c"
+	},
+	"a197e718-45ca-47cc-8698-43af31385a23": {
+		"id": "a197e718-45ca-47cc-8698-43af31385a23",
+		"title": "Title here",
+		"authors": [
+			{
+				"name": "无名",
+				"position": "全能"
+			}
+		],
+		"description": "",
+		"imgCount": 0,
+		"category": [
+			"无分类"
+		],
+		"event": "2020-CiGA",
+		"download": {
+			"link": "#",
+			"key": ""
+		},
+		"sections": [],
+		"password": "a197e718-45ca-47cc-8698-43af31385a23"
 	}
 }
