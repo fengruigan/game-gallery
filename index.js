@@ -46,6 +46,8 @@ const  { Storage } = require('@google-cloud/storage')
 
 var config = require('./config')
 
+config = JSON.parse(JSON.stringify(config))
+
 const gc = new Storage({
     // keyFilename: path.join(__dirname, './handy-bonbon-288604-8ff6e1dc52bc.json'),
     credentials: config.credentials,
