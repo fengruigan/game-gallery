@@ -46,7 +46,8 @@ const  { Storage } = require('@google-cloud/storage')
 
 var config = require('./config')
 
-config = JSON.parse(JSON.stringify(config))
+console.log(config)
+// config = JSON.parse(JSON.stringify(config))
 
 const gc = new Storage({
     // keyFilename: path.join(__dirname, './handy-bonbon-288604-8ff6e1dc52bc.json'),
@@ -56,7 +57,7 @@ const gc = new Storage({
 
 // const gc = new Storage();
 
-gc.getBuckets().then( buckets => console.log(buckets))
+// gc.getBuckets().then( buckets => console.log(buckets))
 
 var storage = multer.diskStorage({
     destination: function(req, file, callback) {
