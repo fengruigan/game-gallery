@@ -28,21 +28,28 @@ const  { Storage } = require('@google-cloud/storage')
 // 	console.log("ERROR:", err.message);
 // });
 
+// var config = {
+//     credentials: {
+//         "type": process.env.TYPE,
+//         "project_id": process.env.PROJECT_ID,
+//         "private_key_id": process.env.PRIVATE_KEY_ID,
+//         "private_key": process.env.PRIVATE_KEY,
+//         "client_email": process.env.CLIENT_EMAIL,
+//         "client_id": process.env.CLIENT_ID,
+//         "auth_uri": process.env.AUTH_RUI,
+//         "token_uri": process.env.TOKEN_URI,
+//         "auth_provider_x509_cert_url": process.env.AUTH_RPOVIDER_X509_CERT_URL,
+//         "client_x509_cert_url": process.env.CLIENT_X509_CERT_URL
+//     },
+//     projectId: process.env.PROJECT_ID
+// }
+
+var config = require('./config')
+
 const gc = new Storage({
     // keyFilename: path.join(__dirname, './handy-bonbon-288604-8ff6e1dc52bc.json'),
-    credentials: {
-        "type": process.env.TYPE,
-        "project_id": process.env.PROJECT_ID,
-        "private_key_id": process.env.PRIVATE_KEY_ID,
-        "private_key": process.env.PRIVATE_KEY,
-        "client_email": process.env.CLIENT_EMAIL,
-        "client_id": process.env.CLIENT_ID,
-        "auth_uri": process.env.AUTH_RUI,
-        "token_uri": process.env.TOKEN_URI,
-        "auth_provider_x509_cert_url": process.env.AUTH_RPOVIDER_X509_CERT_URL,
-        "client_x509_cert_url": process.env.CLIENT_X509_CERT_URL
-    },
-    projectId: process.env.PROJECT_ID
+    credentials: config.credentials,
+    projectId: config.projectId
 });
 
 // const gc = new Storage();
