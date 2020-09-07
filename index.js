@@ -57,7 +57,7 @@ const gc = new Storage({
 
 // const gc = new Storage();
 
-// gc.getBuckets().then( buckets => console.log(buckets))
+gc.getBuckets().then( buckets => console.log(buckets))
 
 var storage = multer.diskStorage({
     destination: function(req, file, callback) {
