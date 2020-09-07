@@ -28,12 +28,16 @@ const  { Storage } = require('@google-cloud/storage')
 // 	console.log("ERROR:", err.message);
 // });
 
-// const gc = new Storage({
-//     keyFilename: path.join(__dirname, './handy-bonbon-288604-8ff6e1dc52bc.json'),
-//     projectId: "handy-bonbon-288604"
-// });
+const gc = new Storage({
+    // keyFilename: path.join(__dirname, './handy-bonbon-288604-8ff6e1dc52bc.json'),
+    credentials: {
+        client_email: process.env.CLIENT_EMAIL,
+        private_key: process.env.PRIVATE_KEY
+    },
+    projectId: process.env.PROJECT_ID 
+});
 
-const gc = new Storage();
+// const gc = new Storage();
 
 gc.getBuckets().then( buckets => console.log(buckets))
 
