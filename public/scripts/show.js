@@ -21,7 +21,7 @@ function generateList() {
 
     if (imgCount != 0) {
         for (let i = 1; i <= imgCount; i++) {
-            let imgUrl = "https://indie-gallery-app.imfast.io/" + id + "/images/" + String(i) + ".png";
+            let imgUrl = "https://storage.googleapis.com/indie-gallery/" + id + "/images/" + String(i) + ".png";
             let li = document.createElement('li');
             let img = document.createElement('img')
             img.src= imgUrl;

@@ -57,7 +57,8 @@
         2020 CiGA Game Jam Theme Image <br>
         ——主题图片
     </h3>
-    <img class="ui centered large image" image src="images/CGJ_theme.png">
+    <img class="ui centered large image" image src="https://storage.googleapis.com/indie-gallery/misc/CGJ_theme.png">
+    <!-- <img class="ui centered large image" image src="images/CGJ_theme.png"> -->
     <div class="ui hidden divider"></div>
 
     <p">
@@ -86,7 +87,7 @@
                     <div class="ui card" id=<%= work.id %> data-title=<%= work.title %> data-authors="<%= auth %>" data-imgCount=<%= work.imgCount %> data-description="<%= work.description %>" >
                         <div class="image">
                             <% if (work.imgCount !== 0) { %>
-                                <img class="thumbnail" src="https://indie-gallery-app.imfast.io/<%= work.id %>/images/1.png">
+                                <img class="thumbnail" src="https://storage.googleapis.com/indie-gallery/<%= work.id %>/images/1.png">
                             <% } else { %>
                                 <img class="thumbnail" src="/images/placeholder.png">
                             <% } %>
@@ -134,7 +135,7 @@
                     <div class='ten wide column'>
                         <div class="row">
                             <div class="ui fluid image">
-                                <img src="/images/marine_vs_zergling_thumbnail.png" id="showcase">
+                                <img src="https://storage.googleapis.com/indie-gallery/misc/marine_vs_zergling_thumbnail.png" id="showcase">
                             </div>
                         </div>
                         <ul id="list">

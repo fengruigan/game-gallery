@@ -1,5 +1,5 @@
 class work {
-    id;
+    // id;
     title = '';
     authors = [];
     description = '';
