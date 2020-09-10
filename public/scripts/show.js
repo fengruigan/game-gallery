@@ -19,18 +19,31 @@ function generateList() {
     let id = document.querySelector('#list').dataset.id
     let imgCount = document.querySelector('#list').dataset.imgcount
 
-    for (let i = 1; i <= imgCount; i++) {
-        let imgUrl = "https://indie-gallery-app.imfast.io/" + id + "/images/" + String(i) + ".png";
+    if (imgCount != 0) {
+        for (let i = 1; i <= imgCount; i++) {
+            let imgUrl = "https://storage.googleapis.com/indie-gallery/" + id + "/images/" + String(i) + ".png";
+            let li = document.createElement('li');
+            let img = document.createElement('img')
+            img.src= imgUrl;
+            li.appendChild(img)
+            li.classList.add('listItem')
+            if(i === 1) {
+                li.classList.add('active');
+            }
+            document.querySelector('#list').appendChild(li)
+        }
+    } else {
+        let imgUrl = "/images/placeholder.png";
         let li = document.createElement('li');
         let img = document.createElement('img')
         img.src= imgUrl;
         li.appendChild(img)
-        li.classList.add('listItem')
-        if(i === 1) {
-            li.classList.add('active');
-        }
+        li.classList.add('listItem', 'active')
         document.querySelector('#list').appendChild(li)
     }
+
+
+
     changeShowcase();
     let lis = document.querySelectorAll('.listItem')
     lis.forEach( (li) => {

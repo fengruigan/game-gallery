@@ -13,18 +13,15 @@
 	"categories": {
 		"list": [
 			"无分类",
-			"生存",
 			"解谜",
 			"塔防",
 			"模拟",
+			"生存",
 			"角色扮演"
 		],
 		"无分类": [
 			"5f8e7712-e877-49a2-89f8-b3a67d180e68",
 			"a46078ac-fd28-4414-bc4f-e90ff7a99531"
-		],
-		"生存": [
-			"f9bf5d48-daf9-4cb4-a7cb-58abff027ed6"
 		],
 		"解谜": [
 			"038a1ce2-8c42-4dc1-8cce-9cf783cf682a",
@@ -37,6 +34,9 @@
 		"模拟": [
 			"60baeeb8-061b-4b9c-954b-13d918b5534d"
 		],
+		"生存": [
+			"f9bf5d48-daf9-4cb4-a7cb-58abff027ed6"
+		],
 		"角色扮演": [
 			"396147dd-bb24-4492-921f-c3335d43db6a"
 		]
@@ -46,6 +46,7 @@
 			"2020-CiGA"
 		],
 		"2020-CiGA": [
+			"8ce4bffc-7c7b-4d47-995b-d0d6eddb533c",
 			"5f8e7712-e877-49a2-89f8-b3a67d180e68",
 			"038a1ce2-8c42-4dc1-8cce-9cf783cf682a",
 			"60baeeb8-061b-4b9c-954b-13d918b5534d",
@@ -53,8 +54,7 @@
 			"a46078ac-fd28-4414-bc4f-e90ff7a99531",
 			"396147dd-bb24-4492-921f-c3335d43db6a",
 			"bff3e771-6083-4b4a-9413-34e79c539558",
-			"a7bf085f-bb64-41a9-aded-4d4325c92561",
-			"8ce4bffc-7c7b-4d47-995b-d0d6eddb533c"
+			"a7bf085f-bb64-41a9-aded-4d4325c92561"
 		]
 	},
 	"038a1ce2-8c42-4dc1-8cce-9cf783cf682a": {
@@ -89,7 +89,7 @@
 			"key": ""
 		},
 		"sections": [],
-		"password": ""
+		"password": "038a1ce2-8c42-4dc1-8cce-9cf783cf682a"
 	},
 	"60baeeb8-061b-4b9c-954b-13d918b5534d": {
 		"id": "60baeeb8-061b-4b9c-954b-13d918b5534d",
@@ -119,7 +119,7 @@
 			"key": ""
 		},
 		"sections": [],
-		"password": ""
+		"password": "60baeeb8-061b-4b9c-954b-13d918b5534d"
 	},
 	"f9bf5d48-daf9-4cb4-a7cb-58abff027ed6": {
 		"id": "f9bf5d48-daf9-4cb4-a7cb-58abff027ed6",
@@ -157,7 +157,7 @@
 			"key": ""
 		},
 		"sections": [],
-		"password": ""
+		"password": "f9bf5d48-daf9-4cb4-a7cb-58abff027ed6"
 	},
 	"a46078ac-fd28-4414-bc4f-e90ff7a99531": {
 		"id": "a46078ac-fd28-4414-bc4f-e90ff7a99531",
@@ -195,7 +195,7 @@
 			"key": ""
 		},
 		"sections": [],
-		"password": ""
+		"password": "a46078ac-fd28-4414-bc4f-e90ff7a99531"
 	},
 	"396147dd-bb24-4492-921f-c3335d43db6a": {
 		"id": "396147dd-bb24-4492-921f-c3335d43db6a",
@@ -229,7 +229,7 @@
 			"key": ""
 		},
 		"sections": [],
-		"password": ""
+		"password": "396147dd-bb24-4492-921f-c3335d43db6a"
 	},
 	"5f8e7712-e877-49a2-89f8-b3a67d180e68": {
 		"id": "5f8e7712-e877-49a2-89f8-b3a67d180e68",
@@ -251,7 +251,7 @@
 			"key": ""
 		},
 		"sections": [],
-		"password": ""
+		"password": "5f8e7712-e877-49a2-89f8-b3a67d180e68"
 	},
 	"bff3e771-6083-4b4a-9413-34e79c539558": {
 		"id": "bff3e771-6083-4b4a-9413-34e79c539558",
@@ -285,7 +285,7 @@
 			"key": ""
 		},
 		"sections": [],
-		"password": ""
+		"password": "bff3e771-6083-4b4a-9413-34e79c539558"
 	},
 	"a7bf085f-bb64-41a9-aded-4d4325c92561": {
 		"id": "a7bf085f-bb64-41a9-aded-4d4325c92561",

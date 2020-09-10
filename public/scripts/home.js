@@ -33,7 +33,6 @@ function onLoad() {
 }
 
 function resizeImg() {
-
     let thumbs = document.querySelectorAll('.thumbnail');
     thumbs.forEach( (thumb) => {
         thumb.style.height = String(thumb.width * 9 / 16) + "px"
@@ -52,18 +51,29 @@ function populateDetail(data) {
     while (list.firstChild) {
         list.removeChild(list.firstChild);
     }
-    for (let i = 1; i <= Math.min(work.imgCount, 4); i++) {
-        let imgUrl = "https://indie-gallery-app.imfast.io/" + work.id + "/images/" + String(i) + ".png";
+    if (work.imgCount != 0) {
+        for (let i = 1; i <= Math.min(work.imgCount, 4); i++) {
+            let imgUrl = "https://storage.googleapis.com/indie-gallery/" + work.id + "/images/" + String(i) + ".png";
+            let li = document.createElement('li');
+            let img = document.createElement('img')
+            img.src= imgUrl;
+            li.appendChild(img)
+            li.classList.add('listItem')
+            if(i === 1) {
+                li.classList.add('active');
+            }
+            document.querySelector('#list').appendChild(li)
+        }
+    } else {
+        let imgUrl = "/images/placeholder.png";
         let li = document.createElement('li');
         let img = document.createElement('img')
         img.src= imgUrl;
         li.appendChild(img)
-        li.classList.add('listItem')
-        if(i === 1) {
-            li.classList.add('active');
-        }
+        li.classList.add('listItem', 'active')
         document.querySelector('#list').appendChild(li)
     }
+
     changeShowcase();
     let lis = document.querySelectorAll('.listItem')
     lis.forEach( (li) => {

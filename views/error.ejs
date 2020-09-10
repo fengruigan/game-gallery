@@ -1,0 +1,27 @@
+<%- include('./partials/header') %>
+
+<div class="title">
+	<h1>
+		<i class="archive icon"></i> Indie Gallery/独立游戏作品集
+	</h1>
+	<h2>
+		A gallery for indie games and the stories behind them.
+    </h2>
+    <h2>
+        这是一个独立游戏作品集，来看看它们的故事吧
+    </h2>
+</div>
+
+<div class="main ui container" style="padding-bottom: 20em;">
+    <h3>
+        操作有误！如果在删除作品，请确认密码正确
+    </h3>
+    <h4>将在3秒后返回</h4>
+</div>
+
+<script>
+    setTimeout( () => {
+        window.location = window.history.back()
+    }, 3000)
+</script>
+<%- include('./partials/footer') %>
