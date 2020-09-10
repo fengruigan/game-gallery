@@ -3,9 +3,23 @@ var db = require('./workDB.json'),
     uuid = require('uuid').v4,
     path = require('path'),
     rimraf = require('rimraf'),
-    work = require('./workSchema');
+    work = require('./workSchema'),
+    cloud = require('../cloudControl')
 
 class dbManager{
+
+    static connect = function() {
+        mongoose.set("useNewUrlParser", true);
+        mongoose.set("useFindAndModify", false);
+        mongoose.set('useCreateIndex', true);
+        mongoose.set('useUnifiedTopology', true);
+        var url = "mongodb+srv://fengruigan:gfr1996@cluster0.7wlxm.mongodb.net/indie_gallery?retryWrites=true&w=majority"
+        mongoose.connect(url).then(function() {
+            console.log("Connected to DB");
+        }).catch(function(err){
+            console.log("ERROR:", err.message);
+        });
+    }
 
     static create = function(work) {
         // creates a new uuid'ed in the database 
@@ -52,22 +66,25 @@ class dbManager{
                 console.log(err);
             }
         });
-        fs.mkdirSync(path.join("./public", id, "stylesheets"), (err) => {
-            if (err) {
-                console.log(err);
-            }
-        });
-        fs.mkdirSync(path.join("./public", id, "scripts"), (err) => {
-            if (err) {
-                console.log(err);
-            }
-        });
+        // fs.mkdirSync(path.join("./public", id, "stylesheets"), (err) => {
+        //     if (err) {
+        //         console.log(err);
+        //     }
+        // });
+        // fs.mkdirSync(path.join("./public", id, "scripts"), (err) => {
+        //     if (err) {
+        //         console.log(err);
+        //     }
+        // });
         console.log("Directory created")
         // ================ move image files into work folder in public ================
         for (let i = 1; i <= work.imgCount; i++) {
-            fs.renameSync('./public/uploads/' + i + '.png', './public/' + id + '/images/' + i + '.png');
+            fs.renameSync('./public/tmp/' + i + '.png', './public/' + id + '/images/' + i + '.png');
         }
-        
+        // ================ upload file to google cloud ================
+        if (work.imgCount != 0) {
+            cloud.uploadDirectory('indie-gallery', './public/' + id)
+        }
     }
 
     static readAll = function(criteria="none") {
@@ -227,6 +244,10 @@ class dbManager{
                 if (arr.length === 0) {
                     delete db.event["无"];
                 }
+            }
+            // ================ delete file on google cloud ================
+            for (let i = 1; i <= db[id].imgCount; i++) {
+                cloud.deleteFile('indie-gallery', id + "/images/" + String(i) + ".png")
             }
             // ================ delete work object from db ================
             delete db[id];
