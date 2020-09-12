@@ -1,23 +1,18 @@
+const e = require('express');
+
 require('newrelic');
 
 const express = require('express'),
     app = express(),
-    mongoose = require('mongoose'),
     dbManager = require('./database/dbManager'),
-    Work = require('./database/workSchema'),
-    db = require('./database/workDB.json'),
+    Work = require('./database/models/workSchema'),
     bodyParser = require('body-parser'),
     multer = require('multer'),
-    // flash = require('connect-flash'),
-    path = require('path'),
     methodOverride = require('method-override'),
     cloud = require('./cloudControl')
     fs = require('fs');
-// =========
-// DB setup
-// =========
 
-dbManager.connect();
+dbManager.connect.connect();
 
 try {
     cloud.connectCloud()
@@ -43,8 +38,9 @@ app.use(methodOverride("_method"));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', (req,res) => {
-    let works = dbManager.readAll();
-    res.render('home', {works: works});
+    dbManager.read.find({}).then( (works) => {
+        res.render('home', {works: works});
+    });
 });
 
 app.get('/success', (req,res) => {
@@ -55,7 +51,7 @@ app.get('/error', (req,res) => {
     res.render('error');
 })
 
-app.post('/works', upload.array('image', 10), (req,res,next) => {
+app.post('/works', upload.array('image', 10), (req,res) => {
     // res.send("此功能在建设中")
 
     let title = req.body.title;
@@ -67,38 +63,6 @@ app.post('/works', upload.array('image', 10), (req,res,next) => {
     let download = req.body.download
     let sections = req.body.section
     let password = req.body.password
-
-    let auth = []
-    if(typeof(authors.name) === "object") {
-        authors.name.forEach( (name, index) => {
-            if (name === "") {
-                name = '无名'
-            }
-            if (authors.position[index] === "") {
-                position = '全能'
-            } else {
-                position = authors.position[index]
-            }
-            auth.push({
-                "name": name,
-                "position": position
-            });
-        });
-    } else {
-        let name = authors.name
-        if (name === "") {
-            name = '无名'
-        }
-        if (authors.position === "") {
-            position = '全能'
-        } else {
-            position = authors.position
-        }
-        auth.push({
-            "name": name,
-            "position": position
-        })
-    }
 
     if (category[1] !== "") {
         category.splice(0,1)
@@ -115,60 +79,27 @@ app.post('/works', upload.array('image', 10), (req,res,next) => {
         download.link = "#";
     }
 
-    let sec = []
-    if (sections !== undefined) {
-        if(typeof(sections.title) === "object") {
-            sections.title.forEach( (title, index) => {
-                let content = section.content[index]
-                content = sanitize(content);
-                if (title === "") {
-                    title = "版块标题"
-                }
-                if (content === "") {
-                    content = "版块内容"
-                }
-                sec.push({
-                    "title": title,
-                    "content": content
-                });
-            });
-        } else {
-            if (sections.title === "") {
-                sections.title = "版块标题"
-            }
-            let content = sections.content
-            if (content === "") {
-                content = "版块内容"
-            }
-            content = sanitize(content);
-            sec.push({
-                "title": sections.title,
-                "content": content
-            })
-        }
-    }
-
     let newWork = new Work(
         title,
-        auth,
+        authors,
         description,
         imgCount,
         category,
         event,
         download,
-        sec,
+        sections,
         password
     )
     
-    dbManager.create(newWork);
+    dbManager.create.create(newWork);
     // if no error
     res.redirect('/success');
 })
 
-app.get('/works/create', (req,res) => {
+app.get('/works/create', async (req,res) => {
     // res.send("此功能在建设中")
-    let categories = db.categories.list;
-    let event = db.event.list
+    let categories = await dbManager.read.listCategories().then( c => {return c});
+    let event = await dbManager.read.listEvents().then( e => {return e});
     let options = Object;
     options.categories = categories
     options.event = event
@@ -177,13 +108,17 @@ app.get('/works/create', (req,res) => {
 
 app.get('/works/:id', (req,res) => {
     if (req.params.id === "5f8e7712-e877-49a2-89f8-b3a67d180e68") {
-        let work = dbManager.read(req.params.id);
-        res.render('works/5f8e7712-e877-49a2-89f8-b3a67d180e68', {work: work})
+        dbManager.read.findById(req.params.id).then( work => {
+            res.render('works/5f8e7712-e877-49a2-89f8-b3a67d180e68', {work: work})
+        }).catch( err => {
+            console.log("ERROR:", err.message)
+        });
     } else {
-        let work = dbManager.read(req.params.id);
-        if (work) {
+        dbManager.read.findById(req.params.id).then( work => {
             res.render('works/show', {work: work})
-        }
+        }).catch( err => {
+            console.log("ERROR:", err.message)
+        });
     }
 })
 
@@ -192,23 +127,30 @@ app.get('/works/:id/edit', (req,res) => {
     res.send("此功能还在建设中");
 })
 app.get('/works/:id/delete', (req,res) => {
-    let work = dbManager.read(req.params.id)
-    res.render('works/delete', {work: work})
+    dbManager.read.findById(req.params.id).then( work => {
+        res.render('works/delete', {work: work})
+    }).catch( err => {
+        console.log("ERROR:", err.message)
+    });
     // res.send("此功能还在建设中")
 })
 
 app.delete('/works/:id', (req,res) => {
-    let pw = dbManager.read(req.params.id).password;
-    if (pw) {
-        if (req.body.password === pw) {
-            dbManager.destory(req.params.id);
-            res.redirect('/success');
+    dbManager.read.findById(req.params.id).then( work => {
+        pw = work.password;
+        if (pw) {
+            if (req.body.password === pw) {
+                dbManager.destroy.deleteId(req.params.id);
+                res.redirect('/success');
+            } else {
+                res.redirect('/error');
+            }
         } else {
-            res.redirect('/error');
+            res.redirect('/error')
         }
-    } else {
-        res.redirect('/error')
-    }
+    }).catch( err => {
+        console.log("ERROR:", err.message)
+    });
 })
 
 app.get('/about', (req,res) => {
@@ -218,10 +160,3 @@ app.get('/about', (req,res) => {
 app.listen(process.env.PORT || 8000, () => {
     console.log('Server running');
 })
-
-
-function sanitize(text){
-    var sanitized = text.replace("<script>", "");
-    sanitized = sanitized.replace("</script>", "");
-    return sanitized;
-}
