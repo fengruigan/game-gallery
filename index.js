@@ -1,5 +1,3 @@
-const e = require('express');
-
 require('newrelic');
 
 const express = require('express'),
