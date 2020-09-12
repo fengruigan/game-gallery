@@ -1,17 +1,17 @@
 const fs = require('fs'),
       path = require('path'),
       {Storage} = require('@google-cloud/storage')
-    //   config = require('./config')
+      config = require('./config')
 
 async function connectCloud() {
-    // const gc = new Storage({
-    //     credentials: config.credentials,
-    //     projectId: config.projectId
-    // });
     const gc = new Storage({
-        keyFilename: path.join(__dirname, "handy-bonbon-288604-8ff6e1dc52bc.json"),
-        projectId: "handy-bonbon-288604"
-    })
+        credentials: config.credentials,
+        projectId: config.projectId
+    });
+    // const gc = new Storage({
+    //     keyFilename: path.join(__dirname, "handy-bonbon-288604-8ff6e1dc52bc.json"),
+    //     projectId: "handy-bonbon-288604"
+    // })
 
     try {
         gc.getBuckets()
@@ -22,14 +22,14 @@ async function connectCloud() {
 }
 
 async function listFiles(bucketName="indie-gallery"){
-    // const gc = new Storage({
-    //     credentials: config.credentials,
-    //     projectId: config.projectId
-    // });
     const gc = new Storage({
-        keyFilename: path.join(__dirname, "handy-bonbon-288604-8ff6e1dc52bc.json"),
-        projectId: "handy-bonbon-288604"
-    })
+        credentials: config.credentials,
+        projectId: config.projectId
+    });
+    // const gc = new Storage({
+    //     keyFilename: path.join(__dirname, "handy-bonbon-288604-8ff6e1dc52bc.json"),
+    //     projectId: "handy-bonbon-288604"
+    // })
 
     const [files] = await gc.bucket(bucketName).getFiles();
 
@@ -39,14 +39,15 @@ async function listFiles(bucketName="indie-gallery"){
 }
 
 async function uploadFile(bucketName='indie-gallery' ,filename) {
-    // const gc = new Storage({
-    //     credentials: config.credentials,
-    //     projectId: config.projectId
-    // });
     const gc = new Storage({
-        keyFilename: path.join(__dirname, "handy-bonbon-288604-8ff6e1dc52bc.json"),
-        projectId: "handy-bonbon-288604"
-    })
+        credentials: config.credentials,
+        projectId: config.projectId
+    });
+    // const gc = new Storage({
+    //     keyFilename: path.join(__dirname, "handy-bonbon-288604-8ff6e1dc52bc.json"),
+    //     projectId: "handy-bonbon-288604"
+    // })
+
     // Uploads a local file to the bucket
     await gc.bucket(bucketName).upload(filename, {
       // Support for HTTP requests made with `Accept-Encoding: gzip`
@@ -65,14 +66,14 @@ async function uploadFile(bucketName='indie-gallery' ,filename) {
 }
 
 async function uploadDirectory(bucketName="indie-gallery", directoryPath) {
-    // const gc = new Storage({
-    //     credentials: config.credentials,
-    //     projectId: config.projectId
-    // });
     const gc = new Storage({
-        keyFilename: path.join(__dirname, "handy-bonbon-288604-8ff6e1dc52bc.json"),
-        projectId: "handy-bonbon-288604"
-    })
+        credentials: config.credentials,
+        projectId: config.projectId
+    });
+    // const gc = new Storage({
+    //     keyFilename: path.join(__dirname, "handy-bonbon-288604-8ff6e1dc52bc.json"),
+    //     projectId: "handy-bonbon-288604"
+    // })
     const fileList = []
 
     // get the list of files from the specified directory
@@ -131,14 +132,14 @@ async function uploadDirectory(bucketName="indie-gallery", directoryPath) {
 }
 
 async function deleteFile(bucketName='indie-gallery', filename) {
-    // const gc = new Storage({
-    //     credentials: config.credentials,
-    //     projectId: config.projectId
-    // });
     const gc = new Storage({
-        keyFilename: path.join(__dirname, "handy-bonbon-288604-8ff6e1dc52bc.json"),
-        projectId: "handy-bonbon-288604"
-    })
+        credentials: config.credentials,
+        projectId: config.projectId
+    });
+    // const gc = new Storage({
+    //     keyFilename: path.join(__dirname, "handy-bonbon-288604-8ff6e1dc52bc.json"),
+    //     projectId: "handy-bonbon-288604"
+    // })
     // Deletes the file from the bucket
     await gc.bucket(bucketName).file(filename).delete();
 
@@ -149,6 +150,6 @@ module.exports = {
     connectCloud, listFiles, uploadFile, uploadDirectory, deleteFile
 }
 
-async function listDirectory(bucketName='indie-gallery', directory) {
+// async function listDirectory(bucketName='indie-gallery', directory) {
 
-}
+// }
