@@ -3,6 +3,7 @@
 
 # testing
 /test
+/database/worker
 
 
 # misc

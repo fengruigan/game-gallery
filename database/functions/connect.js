@@ -5,7 +5,7 @@ function connect(log=true) {
         mongoose.set("useFindAndModify", false);
         mongoose.set('useCreateIndex', true);
         mongoose.set('useUnifiedTopology', true);
-        var url = "mongodb+srv://fengruigan:gfr1996@cluster0.7wlxm.mongodb.net/indie_gallery?retryWrites=true&w=majority"
+        var url = process.env.DATABASE_URL
         mongoose.connect(url).then(function() {
             if (log) {
                 console.log("Connected to DB");
